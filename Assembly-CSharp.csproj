@@ -58,6 +58,7 @@
     <Compile Include="Assets\scripts\Creatures\Hero.cs" />
     <Compile Include="Assets\FletcherLibraries\Utility\IntegerMath\IntegerVector.cs" />
     <Compile Include="Assets\scripts\RoomMaster\Roomspawner.cs" />
+    <Compile Include="Assets\scripts\Components\AddCoinsComponent.cs" />
     <Compile Include="Assets\scripts\Components\EnterTriggerComponentNonPhysical.cs" />
     <Compile Include="Assets\scripts\Components\Cheats\CheatController.cs" />
     <Compile Include="Assets\scripts\HeroInputReader.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\scripts\FollowTarget.cs" />
     <Compile Include="Assets\scripts\Components\states\EnterTriggerStates.cs" />
     <Compile Include="Assets\scripts\Components\DestroyObjectComponent.cs" />
+    <Compile Include="Assets\scripts\Components\MoveCamera.cs" />
     <Compile Include="Assets\scripts\Components\SpawnListComponent.cs" />
     <Compile Include="Assets\scripts\Utils\GameObjectExtensions.cs" />
     <Compile Include="Assets\scripts\CheckCircleOverlap.cs" />
@@ -89,8 +91,11 @@
     <Compile Include="Assets\scripts\Components\InteractableComponent.cs" />
     <Compile Include="Assets\scripts\Components\Cheats\CheatsItem.cs" />
     <Compile Include="Assets\scripts\Utils\HandlesUtils.cs" />
-    <Compile Include="Assets\scripts\Components\AddCoinsComponent.cs" />
-    <Compile Include="Assets\scripts\Components\MoveCamera.cs" />
+    <Compile Include="Assets\scripts\Components\ColliderBased\LayerCheck.cs" />
+    <Compile Include="Assets\scripts\Creatures\MobAI.cs" />
+    <Compile Include="Assets\scripts\Creatures\Patrolling\PointPatrolling.cs" />
+    <Compile Include="Assets\scripts\Creatures\Patrolling\Patrol.cs" />
+    <Compile Include="Assets\scripts\Creatures\Patrolling\PlatformPatrolling.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\textures\Cainos\Pixel Art Platformer - Village Props\Changelog.txt" />

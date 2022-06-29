@@ -13,6 +13,8 @@ namespace Assets.scripts.Creatures
         [SerializeField] protected float DamageVelocity = 1;
         [SerializeField] private int _damage = 1;
 
+        [SerializeField] private bool inversed;
+
         [Header("Checkers")]
         [SerializeField] private float _groundCheckRadious = 0;
         [SerializeField] protected LayerMask GroundLayer;
@@ -64,7 +66,7 @@ namespace Assets.scripts.Creatures
                 Animator.SetFloat(Vertical_velocity, Rigidbody.velocity.y);
                 Animator.SetBool(IsRunningKey, Direction.x != 0);
 
-                UpgradeSpriteDirection();
+                UpgradeSpriteDirection(new Vector3(xVelocity, yVelocity, 0));
         }
 
 
@@ -107,16 +109,18 @@ namespace Assets.scripts.Creatures
             return yVelocity;
         }
 
-        private void UpgradeSpriteDirection()
+        public void UpgradeSpriteDirection(Vector3 direction)
         {
 
-            if (Direction.x > 0)
+            var multiplier = inversed ? -1.5f : 1.5f;
+
+            if (direction.x > 0)
             {
-                transform.localScale = new Vector3(1.5f, 1.5f, 1);
+                transform.localScale = new Vector3(multiplier, 1.5f, 1);
             }
-            else if (Direction.x < 0)
+            else if (direction.x < 0)
             {
-                transform.localScale = new Vector3(-1.5f, 1.5f, 1);
+                transform.localScale = new Vector3(-1f * multiplier, 1.5f, 1);
             }
         }
 

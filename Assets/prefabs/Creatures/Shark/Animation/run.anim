@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: idle
+  m_Name: run
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,15 +20,17 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 0f8da75210418d34393652f97926f842, type: 3}
+      value: {fileID: 21300000, guid: 40bf785f579afc64fb2a68e83f600c1f, type: 3}
     - time: 0.1
-      value: {fileID: 21300000, guid: 77ee0c02b5a900147b7bc52a2aaa3155, type: 3}
+      value: {fileID: 21300000, guid: 386210bf44bede1419df1de9bacd3331, type: 3}
     - time: 0.2
-      value: {fileID: 21300000, guid: 2ecc5da424171cf48b36d8a68f3f33da, type: 3}
+      value: {fileID: 21300000, guid: 0eb2f0f37fa195d48aa6fb0692e58fb0, type: 3}
     - time: 0.3
-      value: {fileID: 21300000, guid: 2fd6110c9c57b9b45bc3ea52dfddac9b, type: 3}
+      value: {fileID: 21300000, guid: a8557c99feb56d449b83969c4ce1ab88, type: 3}
     - time: 0.4
-      value: {fileID: 21300000, guid: 3e4a8d3e82232cf48a4c240279d727ad, type: 3}
+      value: {fileID: 21300000, guid: f278cc23f25440e459415ea215c7e633, type: 3}
+    - time: 0.5
+      value: {fileID: 21300000, guid: a85c867657aed5d4d8ccef6bf49fec8b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -48,17 +50,18 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 0f8da75210418d34393652f97926f842, type: 3}
-    - {fileID: 21300000, guid: 77ee0c02b5a900147b7bc52a2aaa3155, type: 3}
-    - {fileID: 21300000, guid: 2ecc5da424171cf48b36d8a68f3f33da, type: 3}
-    - {fileID: 21300000, guid: 2fd6110c9c57b9b45bc3ea52dfddac9b, type: 3}
-    - {fileID: 21300000, guid: 3e4a8d3e82232cf48a4c240279d727ad, type: 3}
+    - {fileID: 21300000, guid: 40bf785f579afc64fb2a68e83f600c1f, type: 3}
+    - {fileID: 21300000, guid: 386210bf44bede1419df1de9bacd3331, type: 3}
+    - {fileID: 21300000, guid: 0eb2f0f37fa195d48aa6fb0692e58fb0, type: 3}
+    - {fileID: 21300000, guid: a8557c99feb56d449b83969c4ce1ab88, type: 3}
+    - {fileID: 21300000, guid: f278cc23f25440e459415ea215c7e633, type: 3}
+    - {fileID: 21300000, guid: a85c867657aed5d4d8ccef6bf49fec8b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.6
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -77,4 +80,25 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.1
+    functionName: Spawn
+    data: RunParticle
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.3
+    functionName: Spawn
+    data: RunParticle
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: Spawn
+    data: RunParticle
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
