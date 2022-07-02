@@ -19,6 +19,8 @@ namespace Assets.scripts.Creatures
 
         [SerializeField] private float  _slamDownVelocity = 3;
 
+        [SerializeField] private Cooldown _cooldownThrowing;
+
         private Collider2D[] _interactResult = new Collider2D[1];
         private bool _allowDoubleJump;
 
@@ -132,6 +134,15 @@ namespace Assets.scripts.Creatures
         {
             _session.Data.IsArmed = true;
             Animator.runtimeAnimatorController = _armed;
+        }
+
+        public void Throw()
+        {
+            if (_cooldownThrowing.IsReady)
+            {
+                _particles.Spawn("ThrowSword");
+                _cooldownThrowing.Reset();
+            }
         }
     }
 }

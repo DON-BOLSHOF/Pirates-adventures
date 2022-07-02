@@ -10,6 +10,7 @@ TagManager:
   - Coins
   - Enemy
   - Interactable
+  - Wall
   layers:
   - Default
   - TransparentFX

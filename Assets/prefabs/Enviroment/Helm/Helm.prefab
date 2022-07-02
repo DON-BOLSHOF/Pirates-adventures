@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 804699471222935607}
   - component: {fileID: 8403207123888999657}
   - component: {fileID: 3493834474395666602}
+  - component: {fileID: 661557976}
+  - component: {fileID: 661557971}
   m_Layer: 7
   m_Name: Helm
   m_TagString: Interactable
@@ -147,15 +149,87 @@ MonoBehaviour:
           m_StringArgument: Interact
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Assets.scripts.Components.SwitchComponent, Assembly-CSharp
-        m_MethodName: Switch
-        m_Mode: 1
+      - m_Target: {fileID: 661557971}
+        m_TargetAssemblyTypeName: Assets.scripts.Components.TimerComponent, Assembly-CSharp
+        m_MethodName: SetTimer
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Interacting
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &661557976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403129204611723263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e5ab087242bca4f88b54529d382351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+--- !u!114 &661557971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403129204611723263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314120a6e29b7804f826def5eb290306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timers:
+  - index: DoorLooking
+    time: 2
+    onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 0}
+          m_TargetAssemblyTypeName: Assets.scripts.Components.SwitchComponent, Assembly-CSharp
+          m_MethodName: Switch
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - index: Interacting
+    time: 1
+    onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 661557976}
+          m_TargetAssemblyTypeName: MoveCamera, Assembly-CSharp
+          m_MethodName: MoveTheCamera
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 661557971}
+          m_TargetAssemblyTypeName: Assets.scripts.Components.TimerComponent, Assembly-CSharp
+          m_MethodName: SetTimer
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: DoorLooking
+            m_BoolArgument: 0
+          m_CallState: 2

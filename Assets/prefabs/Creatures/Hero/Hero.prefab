@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &542348234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542348235}
+  - component: {fileID: 542348236}
+  m_Layer: 9
+  m_Name: ThrowPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &542348235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542348234}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.173, y: -0.002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1585796758791425880}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &542348236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542348234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ac0e2a77a94ff4fa8bec212fdace63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 542348235}
+  _prefab: {fileID: 5069758457854838022, guid: 59feaca65401bf0479f3a9775aaf8d48, type: 3}
 --- !u!1 &611566618
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +245,7 @@ Transform:
   - {fileID: 611566619}
   - {fileID: 7961446220902976737}
   - {fileID: 1830613342}
+  - {fileID: 542348235}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -301,7 +347,7 @@ Animator:
   m_GameObject: {fileID: 1585796758791425882}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eed8928941a8e3d41994f793a385a27a, type: 2}
+  m_Controller: {fileID: 9100000, guid: d921b502876ee4440b0c24894c103ca5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -383,6 +429,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 434e45fb-d110-4a62-8206-891f53987a12
     m_ActionName: Hero/Attack[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8835830657017748256}
+        m_TargetAssemblyTypeName: Assets.scripts.HeroInputReader, Assembly-CSharp
+        m_MethodName: Throwing
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cead47f6-fd67-4f0b-a8d4-b936c9d7eb13
+    m_ActionName: Hero/Throw[/Keyboard/leftShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -404,6 +466,7 @@ MonoBehaviour:
   JumpSpeed: 5
   DamageVelocity: 4
   _damage: 1
+  inversed: 0
   _groundCheckRadious: 0.1
   GroundLayer:
     serializedVersion: 2
@@ -416,6 +479,8 @@ MonoBehaviour:
   _disarmed: {fileID: 9100000, guid: eed8928941a8e3d41994f793a385a27a, type: 2}
   _hitParticles: {fileID: 4290810623596543002}
   _slamDownVelocity: 3
+  _cooldownThrowing:
+    cooldownTime: 2
 --- !u!114 &8835830657017748256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +528,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4943063465751942590, guid: 66f0052509eb3ad45979f718c8fe6fc4, type: 3}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Assets.scripts.Components.ReloadLevelComponent,
           Assembly-CSharp
         m_MethodName: ReloadLevel
@@ -512,6 +577,8 @@ MonoBehaviour:
     Component: {fileID: 6742309652617036493}
   - id: AttackParticle
     Component: {fileID: 8475635853785501123}
+  - id: ThrowSword
+    Component: {fileID: 542348236}
 --- !u!1 &4077293590721400904
 GameObject:
   m_ObjectHideFlags: 0

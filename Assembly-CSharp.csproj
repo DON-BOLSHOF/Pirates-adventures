@@ -63,8 +63,10 @@
     <Compile Include="Assets\scripts\Components\Cheats\CheatController.cs" />
     <Compile Include="Assets\scripts\HeroInputReader.cs" />
     <Compile Include="Assets\scripts\Components\SpriteAnimation.cs" />
+    <Compile Include="Assets\scripts\Model\ProjectTile.cs" />
     <Compile Include="Assets\scripts\Components\ModifyHeathComponent.cs" />
     <Compile Include="Assets\scripts\Components\TeleportComponent.cs" />
+    <Compile Include="Assets\scripts\Components\ColliderBased\LayerCheck.cs" />
     <Compile Include="Assets\scripts\RoomMaster\RoomTemplates.cs" />
     <Compile Include="Assets\scripts\Components\DoInteractionComponent.cs" />
     <Compile Include="Assets\scripts\FollowTarget.cs" />
@@ -76,26 +78,27 @@
     <Compile Include="Assets\scripts\CheckCircleOverlap.cs" />
     <Compile Include="Assets\scripts\Components\SwitchComponent.cs" />
     <Compile Include="Assets\FletcherLibraries\Utility\UnityExtensions\StringExtensions.cs" />
+    <Compile Include="Assets\scripts\Creatures\MobAI.cs" />
     <Compile Include="Assets\scripts\Creatures\Creature.cs" />
     <Compile Include="Assets\scripts\SetParanter.cs" />
     <Compile Include="Assets\scripts\Components\states\State.cs" />
     <Compile Include="Assets\scripts\Components\HealthComponent.cs" />
     <Compile Include="Assets\scripts\Components\ReloadLevelComponent.cs" />
     <Compile Include="Assets\scripts\Components\ExitLVLComponent.cs" />
+    <Compile Include="Assets\scripts\Model\Cooldown.cs" />
     <Compile Include="Assets\scripts\Mover.cs" />
+    <Compile Include="Assets\scripts\Creatures\Patrolling\Patrol.cs" />
     <Compile Include="Assets\scripts\RoomMaster\Destroyer.cs" />
     <Compile Include="Assets\scripts\Model\PlayerData.cs" />
+    <Compile Include="Assets\scripts\Creatures\Patrolling\PlatformPatrolling.cs" />
     <Compile Include="Assets\scripts\Components\states\SpriteAnimationStates.cs" />
+    <Compile Include="Assets\scripts\Creatures\Patrolling\PointPatrolling.cs" />
     <Compile Include="Assets\scripts\Components\ArmHeroComponent.cs" />
     <Compile Include="Assets\scripts\Components\SpawnComponent.cs" />
     <Compile Include="Assets\scripts\Components\InteractableComponent.cs" />
     <Compile Include="Assets\scripts\Components\Cheats\CheatsItem.cs" />
     <Compile Include="Assets\scripts\Utils\HandlesUtils.cs" />
-    <Compile Include="Assets\scripts\Components\ColliderBased\LayerCheck.cs" />
-    <Compile Include="Assets\scripts\Creatures\MobAI.cs" />
-    <Compile Include="Assets\scripts\Creatures\Patrolling\PointPatrolling.cs" />
-    <Compile Include="Assets\scripts\Creatures\Patrolling\Patrol.cs" />
-    <Compile Include="Assets\scripts\Creatures\Patrolling\PlatformPatrolling.cs" />
+    <Compile Include="Assets\scripts\Components\TimerComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\textures\Cainos\Pixel Art Platformer - Village Props\Changelog.txt" />

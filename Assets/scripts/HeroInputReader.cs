@@ -26,5 +26,12 @@ namespace Assets.scripts
                 _hero.Attack();
             }
         }
+        public void Throwing(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _hero.Throw();
+            }
+        }
     }
 }
