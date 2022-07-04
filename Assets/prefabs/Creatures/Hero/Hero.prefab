@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 611566619}
   - component: {fileID: 2719574959511902360}
   - component: {fileID: 4927058018159941285}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: AttackPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ MonoBehaviour:
   _radius: 0.13
   _mask:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 1527
   _tags:
   - Enemy
   _onOverlapEvent:
@@ -124,6 +124,70 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1467064792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467064793}
+  - component: {fileID: 1467064795}
+  - component: {fileID: 1467064794}
+  m_Layer: 12
+  m_Name: WallCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1467064793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467064792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.189, y: 0.009, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1585796758791425880}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1467064795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467064792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f0f62dd650d2442bd146e7917a2262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 8
+  _isTouchingLayer: 0
+--- !u!58 &1467064794
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467064792}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.08
 --- !u!1 &1830613341
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +199,7 @@ GameObject:
   - component: {fileID: 1830613342}
   - component: {fileID: 1830613344}
   - component: {fileID: 1830613343}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: InteractionCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,6 +310,7 @@ Transform:
   - {fileID: 7961446220902976737}
   - {fileID: 1830613342}
   - {fileID: 542348235}
+  - {fileID: 1467064793}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -463,9 +528,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  JumpSpeed: 5
+  JumpSpeed: 8
   DamageVelocity: 4
-  _damage: 1
   inversed: 0
   _groundCheckRadious: 0.1
   GroundLayer:
@@ -475,12 +539,13 @@ MonoBehaviour:
   _attackRange: {fileID: 4927058018159941285}
   _particles: {fileID: 8411523715797060321}
   _interactingCheck: {fileID: 1830613344}
+  _wallCheck: {fileID: 1467064795}
   _armed: {fileID: 9100000, guid: d921b502876ee4440b0c24894c103ca5, type: 2}
   _disarmed: {fileID: 9100000, guid: eed8928941a8e3d41994f793a385a27a, type: 2}
   _hitParticles: {fileID: 4290810623596543002}
   _slamDownVelocity: 3
   _cooldownThrowing:
-    cooldownTime: 2
+    cooldownTime: 1
 --- !u!114 &8835830657017748256
 MonoBehaviour:
   m_ObjectHideFlags: 0

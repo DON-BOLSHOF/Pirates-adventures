@@ -15,7 +15,9 @@ GameObject:
   - component: {fileID: 1873900987595417026}
   - component: {fileID: 1969117682790878155}
   - component: {fileID: 1940434536}
-  m_Layer: 0
+  - component: {fileID: 9081739509739832138}
+  - component: {fileID: 1262242082343105192}
+  m_Layer: 11
   m_Name: Cuprum_coins
   m_TagString: Coins
   m_Icon: {fileID: 0}
@@ -117,6 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -216,6 +221,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _value: 2
+--- !u!114 &9081739509739832138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17736039077383019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccef04bfee86d174ab782ae2893b41f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frequency: 6
+  _amplitude: 0.1
+  _randomize: 0
+--- !u!50 &1262242082343105192
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17736039077383019}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &2404822601069030767
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +268,7 @@ GameObject:
   - component: {fileID: 4845695417175463835}
   - component: {fileID: 3636255681564054919}
   - component: {fileID: 8267854704399482352}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Destroy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

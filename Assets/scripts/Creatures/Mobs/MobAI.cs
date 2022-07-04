@@ -1,11 +1,11 @@
 using Assets.scripts.Components;
 using Assets.scripts.Components.ColliderBased;
 using Assets.scripts.Creatures;
-using Assets.scripts.Creatures.Patrolling;
+using Assets.scripts.Creatures.Mobs.Patrolling;
 using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Creatures
+namespace Assets.Scripts.Creatures.Mobs
 {
     class MobAI : MonoBehaviour
     {

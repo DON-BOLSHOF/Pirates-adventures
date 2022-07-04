@@ -15,7 +15,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
   - Ground
@@ -23,8 +23,8 @@ TagManager:
   - Trash
   - Hero
   - Mobs
-  - 
-  - 
+  - Collectables
+  - Checkers
   - 
   - 
   - 

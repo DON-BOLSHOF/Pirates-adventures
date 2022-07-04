@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 using Assets.scripts.Components;
 using Assets.scripts.Utils;
 using UnityEditor.Animations;
 using Assets.scripts.Model;
+using Assets.scripts.Components.ColliderBased;
+using System.Collections;
 
 namespace Assets.scripts.Creatures
 {
     class Hero : Creature
     {
         [SerializeField] private CheckCircleOverlap _interactingCheck;
+
+        [SerializeField] private LayerCheck _wallCheck;
 
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
@@ -26,11 +29,16 @@ namespace Assets.scripts.Creatures
 
         private GameSession _session;
 
+        private bool _isOnWall;
+        private float _defaultGravityScale;
+
+        private static readonly int _isOnWallKey = Animator.StringToHash("Is-on-wall");
+
         protected override void Awake()
         {
             base.Awake();
 
-
+            _defaultGravityScale = Rigidbody.gravityScale;
         }
 
         private void Start()
@@ -47,6 +55,19 @@ namespace Assets.scripts.Creatures
         {
             base.Update();
 
+            var moveToSameDirection = Direction.x * transform.lossyScale.x > 0;
+            if(_wallCheck.IsTouchingLayer && moveToSameDirection)
+            {
+                _isOnWall = true;
+                Rigidbody.gravityScale = 0;
+            }
+            else
+            {
+                _isOnWall = false;
+                Rigidbody.gravityScale = _defaultGravityScale;
+            }
+
+            Animator.SetBool(_isOnWallKey, _isOnWall);
         }
         public void OnHealthChanged(int currentHealth)
         {
@@ -57,7 +78,9 @@ namespace Assets.scripts.Creatures
         {
             var _isJumpPressing = Direction.y > 0;
 
-            if (IsOnGrounded){_allowDoubleJump = true;}
+            if (IsOnGrounded || _isOnWall){_allowDoubleJump = true;}
+
+            if(!_isJumpPressing && _isOnWall) { return 0f; }
             
             return base.CalculateYVeclocity();
         }
@@ -78,6 +101,11 @@ namespace Assets.scripts.Creatures
         public void AddCoins(float value)
         {
             _session.Data.Coins += value;
+        }
+
+        public void AddSwords(int value)
+        {
+            _session.Data.SwordCount += value;
         }
 
         public override void TakeDamage()
@@ -138,11 +166,22 @@ namespace Assets.scripts.Creatures
 
         public void Throw()
         {
-            if (_cooldownThrowing.IsReady)
+            if (_session.Data.IsArmed && _cooldownThrowing.IsReady && _session.Data.SwordCount > 1)
             {
                 _particles.Spawn("ThrowSword");
+                _session.Data.SwordCount--;
                 _cooldownThrowing.Reset();
             }
+        }
+
+        public IEnumerator LongThrow()
+        {
+            if (_session.Data.IsArmed)
+                for (int i = 0; i < 3 && _session.Data.SwordCount > 1; i++, _session.Data.SwordCount--)
+                {
+                    _particles.Spawn("ThrowSword");
+                    yield return new WaitForSeconds(0.2f);
+                }
         }
     }
 }

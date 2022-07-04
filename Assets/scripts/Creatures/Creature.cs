@@ -11,7 +11,6 @@ namespace Assets.scripts.Creatures
         [SerializeField] private float _speed;
         [SerializeField] protected float JumpSpeed;
         [SerializeField] protected float DamageVelocity = 1;
-        [SerializeField] private int _damage = 1;
 
         [SerializeField] private bool inversed;
 

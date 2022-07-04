@@ -175,7 +175,7 @@
                     "name": "",
                     "id": "7b9b388b-bea7-4131-8981-53ede3c891eb",
                     "path": "<Keyboard>/leftShift",
-                    "interactions": "Press",
+                    "interactions": "Hold(pressPoint=0.5),Press",
                     "processors": "",
                     "groups": "",
                     "action": "Throw",

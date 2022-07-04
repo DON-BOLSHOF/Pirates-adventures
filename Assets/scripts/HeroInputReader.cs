@@ -1,6 +1,7 @@
 using Assets.scripts.Creatures;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 namespace Assets.scripts
 {
@@ -28,7 +29,11 @@ namespace Assets.scripts
         }
         public void Throwing(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            if (context.interaction is HoldInteraction && context.performed)
+            {
+                StartCoroutine(_hero.LongThrow());
+            }
+            else if(context.interaction is PressInteraction)
             {
                 _hero.Throw();
             }

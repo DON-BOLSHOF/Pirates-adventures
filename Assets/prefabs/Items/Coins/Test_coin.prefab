@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5433796074943267811}
   - component: {fileID: 5433796074943267815}
   - component: {fileID: 5433796074943267814}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Test_coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,9 @@ MonoBehaviour:
     - {fileID: -4893972260818282012, guid: 5130e6082ef9079419cbd84ae5be4bbc, type: 3}
     - {fileID: -6323751108524238166, guid: 5130e6082ef9079419cbd84ae5be4bbc, type: 3}
     - {fileID: 2722280177590742205, guid: 5130e6082ef9079419cbd84ae5be4bbc, type: 3}
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
   - name: Destroy
     allowsNext: 0
     loop: 0
@@ -113,6 +116,9 @@ MonoBehaviour:
     - {fileID: 7609282858266732271, guid: 5130e6082ef9079419cbd84ae5be4bbc, type: 3}
     - {fileID: -4986890610287934012, guid: 5130e6082ef9079419cbd84ae5be4bbc, type: 3}
     - {fileID: 6143208460787649835, guid: 5130e6082ef9079419cbd84ae5be4bbc, type: 3}
+    onComplete:
+      m_PersistentCalls:
+        m_Calls: []
   _frameRate: 10
 --- !u!58 &5433796074943267815
 CircleCollider2D:

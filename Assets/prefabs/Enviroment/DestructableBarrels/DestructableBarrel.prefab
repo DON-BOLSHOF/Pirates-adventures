@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 3310816034747432639}
   - component: {fileID: 3310816034747432629}
   - component: {fileID: 1296978858}
-  m_Layer: 0
+  - component: {fileID: 32199797}
+  m_Layer: 6
   m_Name: DestructableBarrel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -250,6 +251,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 32199797}
+          m_TargetAssemblyTypeName: Assets.scripts.Components.SpawnComponent, Assembly-CSharp
+          m_MethodName: Spawn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 3310816034747432629}
           m_TargetAssemblyTypeName: Assets.scripts.Components.DestroyObjectComponent,
             Assembly-CSharp
@@ -291,3 +304,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 3310816034747432628}
   _prefab: {fileID: 4307773621821214784, guid: ab044621d43cb9b49a5fc7ab62f03697, type: 3}
+--- !u!114 &32199797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3310816034747432638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ac0e2a77a94ff4fa8bec212fdace63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 3310816034747432628}
+  _prefab: {fileID: 1976982483446911306, guid: 3acb33cf50c430d4e9229addaf8c709d, type: 3}
