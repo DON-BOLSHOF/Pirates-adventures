@@ -32,6 +32,10 @@ namespace Assets.scripts.Creatures
         private bool _isOnWall;
         private float _defaultGravityScale;
 
+        private int _swordCount =>  _session.Data.Inventory.Count("Sword");
+        private int _coinCount => _session.Data.Inventory.Count("Coin");
+
+
         private static readonly int _isOnWallKey = Animator.StringToHash("Is-on-wall");
 
         protected override void Awake()
@@ -45,10 +49,18 @@ namespace Assets.scripts.Creatures
         {
             _session = FindObjectOfType<GameSession>();
 
-            Animator.runtimeAnimatorController = _session.Data.IsArmed ? _armed : _disarmed;
-
             var _health = GetComponent<HealthComponent>();
             _health.SetHP(_session.Data.Health);
+
+            _session.Data.Inventory.OnChange += OnInventoryChanged;
+
+            UpgradeHeroWeapon();
+        }
+
+        private void OnInventoryChanged(string id, int value)
+        {
+            if (id == "Sword")
+                UpgradeHeroWeapon();
         }
 
         protected override void Update()
@@ -68,6 +80,11 @@ namespace Assets.scripts.Creatures
             }
 
             Animator.SetBool(_isOnWallKey, _isOnWall);
+        }
+
+        private void OnDestroy()
+        {
+            _session.Data.Inventory.OnChange -= OnInventoryChanged;
         }
         public void OnHealthChanged(int currentHealth)
         {
@@ -98,28 +115,22 @@ namespace Assets.scripts.Creatures
             return base.Jump(yVelocity);
         }
 
-        public void AddCoins(float value)
+        public void AddInInventory(string id, int value)
         {
-            _session.Data.Coins += value;
-        }
-
-        public void AddSwords(int value)
-        {
-            _session.Data.SwordCount += value;
+            _session.Data.Inventory.Add(id, value);
         }
 
         public override void TakeDamage()
         {
             base.TakeDamage();
-
-            if (_session.Data.Coins > 0)
+            if (_coinCount > 0)
                 SpawnCoins();
         }
 
         private void SpawnCoins()
         {
-            var numCoinsToDispose = Mathf.Min(_session.Data.Coins, 5);
-            _session.Data.Coins -= numCoinsToDispose;
+            var numCoinsToDispose = Mathf.Min(_coinCount, 5);
+            _session.Data.Inventory.Remove("Coin",numCoinsToDispose);
 
             var burst = _hitParticles.emission.GetBurst(0);
             burst.count = numCoinsToDispose;
@@ -136,7 +147,7 @@ namespace Assets.scripts.Creatures
 
         public override void Attack()
         {
-            if (!_session.Data.IsArmed) return;
+            if (_swordCount <= 0) return;
 
             base.Attack();
         }
@@ -158,26 +169,25 @@ namespace Assets.scripts.Creatures
             }
         }
 
-        public void ArmHero()
+        private void UpgradeHeroWeapon()
         {
-            _session.Data.IsArmed = true;
-            Animator.runtimeAnimatorController = _armed;
+            Animator.runtimeAnimatorController = _swordCount > 0 ? _armed : _disarmed;
         }
 
         public void Throw()
         {
-            if (_session.Data.IsArmed && _cooldownThrowing.IsReady && _session.Data.SwordCount > 1)
+            if (_swordCount > 1 && _cooldownThrowing.IsReady)
             {
                 _particles.Spawn("ThrowSword");
-                _session.Data.SwordCount--;
+                _session.Data.Inventory.Remove("Sword", 1);
                 _cooldownThrowing.Reset();
             }
         }
 
         public IEnumerator LongThrow()
         {
-            if (_session.Data.IsArmed)
-                for (int i = 0; i < 3 && _session.Data.SwordCount > 1; i++, _session.Data.SwordCount--)
+
+                for (int i = 0; i < 3 && _swordCount > 1; i++, _session.Data.Inventory.Remove("Sword", 1))
                 {
                     _particles.Spawn("ThrowSword");
                     yield return new WaitForSeconds(0.2f);

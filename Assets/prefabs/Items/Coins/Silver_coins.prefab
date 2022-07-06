@@ -131,9 +131,9 @@ GameObject:
   - component: {fileID: 6541758200367265217}
   - component: {fileID: 6541758200367265218}
   - component: {fileID: -7213864156203851714}
-  - component: {fileID: 3895730481114202261}
   - component: {fileID: 8622838788365123316}
   - component: {fileID: 1579837338982715673}
+  - component: {fileID: 5638910271780324623}
   m_Layer: 11
   m_Name: Silver_coins
   m_TagString: Coins
@@ -266,9 +266,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3895730481114202261}
-        m_TargetAssemblyTypeName: Assets.scripts.Components.AddCoinsComponent, Assembly-CSharp
-        m_MethodName: AddCoin
+      - m_Target: {fileID: 5638910271780324623}
+        m_TargetAssemblyTypeName: Assets.scripts.Components.Collectables.InventoryAddComponent,
+          Assembly-CSharp
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -325,19 +326,6 @@ MonoBehaviour:
   _onComponent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3895730481114202261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6541758200367265219}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63425cbb54375114ea9be86e89728366, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value: 5
 --- !u!50 &8622838788365123316
 Rigidbody2D:
   serializedVersion: 4
@@ -374,3 +362,17 @@ MonoBehaviour:
   _frequency: 6
   _amplitude: 0.1
   _randomize: 0
+--- !u!114 &5638910271780324623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6541758200367265219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0111750b9c7339e49a4668d3f1777c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 5

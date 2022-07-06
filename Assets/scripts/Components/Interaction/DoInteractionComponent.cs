@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.scripts.Components
+namespace Assets.scripts.Components.Interaction
 {
     class DoInteractionComponent : MonoBehaviour
     {

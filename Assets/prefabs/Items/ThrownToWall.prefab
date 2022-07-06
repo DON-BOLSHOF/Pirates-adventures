@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 3461746377485584082}
   - component: {fileID: 4041922607859652859}
   - component: {fileID: 5579644068511062113}
-  - component: {fileID: -1286952468760682853}
   - component: {fileID: 3074343647021727322}
   - component: {fileID: 8524935108674861897}
   - component: {fileID: 119631200104061172}
+  - component: {fileID: 5537633925967916711}
   m_Layer: 0
   m_Name: ThrownToWall
   m_TagString: Untagged
@@ -120,19 +120,6 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   _frameRate: 10
---- !u!114 &-1286952468760682853
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5081913166526753675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6d96dc49acc094da84c6beccc2b45b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value: 1
 --- !u!58 &3074343647021727322
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,9 +155,10 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -1286952468760682853}
-        m_TargetAssemblyTypeName: Assets.scripts.Components.SwordArmComponent, Assembly-CSharp
-        m_MethodName: AddSword
+      - m_Target: {fileID: 5537633925967916711}
+        m_TargetAssemblyTypeName: Assets.scripts.Components.Collectables.InventoryAddComponent,
+          Assembly-CSharp
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -206,3 +194,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 5081913166526753675}
+--- !u!114 &5537633925967916711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5081913166526753675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0111750b9c7339e49a4668d3f1777c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Sword
+  _count: 1

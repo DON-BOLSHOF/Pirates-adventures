@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.scripts.Model.Data;
+using UnityEngine;
 
 namespace Assets.scripts.Model
 {
@@ -6,6 +7,8 @@ namespace Assets.scripts.Model
     {
         [SerializeField] private PlayerData _data;
         public PlayerData Data => _data;
+
+        private PlayerData _save;
 
         private void Awake()
         {
@@ -16,6 +19,7 @@ namespace Assets.scripts.Model
             else
             {
                 DontDestroyOnLoad(this);
+                Save();
             }
         }
 
@@ -29,6 +33,16 @@ namespace Assets.scripts.Model
             }
 
             return false;
+        }
+
+        public void Save()
+        {
+            _save = _data.Clone();
+        }
+
+        public void LoadLastSave()
+        {
+            _data = _save.Clone();
         }
     }
 }

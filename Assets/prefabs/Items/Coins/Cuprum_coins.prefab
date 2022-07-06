@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3460643024723248663}
   - component: {fileID: 1873900987595417026}
   - component: {fileID: 1969117682790878155}
-  - component: {fileID: 1940434536}
   - component: {fileID: 9081739509739832138}
   - component: {fileID: 1262242082343105192}
+  - component: {fileID: 641984001224570606}
   m_Layer: 11
   m_Name: Cuprum_coins
   m_TagString: Coins
@@ -149,9 +149,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1940434536}
-        m_TargetAssemblyTypeName: Assets.scripts.Components.AddCoinsComponent, Assembly-CSharp
-        m_MethodName: AddCoin
+      - m_Target: {fileID: 641984001224570606}
+        m_TargetAssemblyTypeName: Assets.scripts.Components.Collectables.InventoryAddComponent,
+          Assembly-CSharp
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -208,19 +209,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 17736039077383019}
---- !u!114 &1940434536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 17736039077383019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63425cbb54375114ea9be86e89728366, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _value: 2
 --- !u!114 &9081739509739832138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +245,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &641984001224570606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17736039077383019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0111750b9c7339e49a4668d3f1777c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 2
 --- !u!1 &2404822601069030767
 GameObject:
   m_ObjectHideFlags: 0

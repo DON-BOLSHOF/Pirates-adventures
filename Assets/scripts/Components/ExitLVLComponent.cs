@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.scripts.Model;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.scripts.Components
@@ -9,6 +10,9 @@ namespace Assets.scripts.Components
 
         public void Exit()
         {
+            var session = FindObjectOfType<GameSession>();
+            session.Save();
+
             SceneManager.LoadScene(_sceneName);
         }
     }
