@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: InventoryItems
   m_EditorClassIdentifier: 
   _items:
-  - _id: Coin
   - _id: Sword
+  - _id: Coin

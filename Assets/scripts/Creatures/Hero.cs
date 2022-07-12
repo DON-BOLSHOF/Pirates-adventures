@@ -12,10 +12,13 @@ namespace Assets.scripts.Creatures
     {
         [SerializeField] private CheckCircleOverlap _interactingCheck;
 
-        [SerializeField] private LayerCheck _wallCheck;
+        [SerializeField] private ColliderCheck _wallCheck;
 
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _disarmed;
+
+        [Header("Sword Throw")]
+        [SerializeField] private float _throwDelay = 0.2f;
 
         [Header("Particles")]
         [SerializeField] private ParticleSystem _hitParticles;
@@ -108,7 +111,7 @@ namespace Assets.scripts.Creatures
             {
                 _allowDoubleJump = false;
 
-                _particles.Spawn("JumpParticle");
+                DoJumpVfx();
                 return JumpSpeed;
             }
 
@@ -180,6 +183,7 @@ namespace Assets.scripts.Creatures
             {
                 _particles.Spawn("ThrowSword");
                 _session.Data.Inventory.Remove("Sword", 1);
+                Sounds.PlayClip("Range");
                 _cooldownThrowing.Reset();
             }
         }
@@ -190,7 +194,8 @@ namespace Assets.scripts.Creatures
                 for (int i = 0; i < 3 && _swordCount > 1; i++, _session.Data.Inventory.Remove("Sword", 1))
                 {
                     _particles.Spawn("ThrowSword");
-                    yield return new WaitForSeconds(0.2f);
+                    Sounds.PlayClip("Range");
+                    yield return new WaitForSeconds(_throwDelay);
                 }
         }
     }

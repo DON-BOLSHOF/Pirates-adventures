@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-namespace Assets.scripts.Components
+namespace Assets.scripts.Components.ColliderBased
 {
     public class EnterTriggerPhysicalComponent : MonoBehaviour
     {

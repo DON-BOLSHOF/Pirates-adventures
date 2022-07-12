@@ -1,4 +1,6 @@
 ﻿using Assets.scripts.Components;
+using Assets.scripts.Components.Audio;
+using Assets.scripts.Components.ColliderBased;
 using Assets.scripts.Utils;
 using UnityEditor;
 using UnityEngine;
@@ -23,6 +25,7 @@ namespace Assets.scripts.Creatures
         [SerializeField] protected SpawnListComponent _particles;
 
         protected Animator Animator;
+        protected PlaySoundsComponent Sounds;
         protected Rigidbody2D Rigidbody;
         protected Vector2 Direction;
         protected bool IsOnGrounded;
@@ -38,6 +41,7 @@ namespace Assets.scripts.Creatures
         {
             Rigidbody = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
+            Sounds = GetComponent<PlaySoundsComponent>(); 
         }
 
         public void SetDirection(Vector2 direction)
@@ -102,10 +106,16 @@ namespace Assets.scripts.Creatures
             if (IsOnGrounded)
             {
                 yVelocity += JumpSpeed;
-                _particles.Spawn("Jump");
+                DoJumpVfx();
             }
 
             return yVelocity;
+        }
+
+        protected void DoJumpVfx()
+        {
+            _particles.Spawn("Jump");
+            Sounds.PlayClip("Jump");
         }
 
         public void UpgradeSpriteDirection(Vector3 direction)
@@ -141,6 +151,7 @@ namespace Assets.scripts.Creatures
         public virtual void Attack()
         {
             Animator.SetTrigger(AttackKey);
+            Sounds.PlayClip("Melee");
         }
 
         public void OnAttack()

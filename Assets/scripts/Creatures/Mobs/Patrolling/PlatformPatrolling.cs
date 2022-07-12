@@ -7,11 +7,10 @@ namespace Assets.scripts.Creatures.Mobs.Patrolling
     class PlatformPatrolling : Patrol
     {
         [SerializeField] private LayerCheck _groundCheck;
+        [SerializeField] private LayerCheck _obstacklesCheck;
 
         private Creature _creature;
         private Vector2 _direction;
-
-        private bool _isSwaped;
 
         private void Awake()
         {
@@ -24,25 +23,18 @@ namespace Assets.scripts.Creatures.Mobs.Patrolling
         {
             while (enabled)
             {
-                if (!_groundCheck.IsTouchingLayer && !_isSwaped)
+                if (_groundCheck.IsTouchingLayer && !_obstacklesCheck.IsTouchingLayer)
                 {
-                    _direction.x = -_direction.x;
-
-                    _creature.SetDirection(Vector2.zero);
-
-                    _isSwaped = true;
-
-                    yield return new WaitForSeconds(0.5f);
+                    _creature.SetDirection(_direction);
+                }
+                else
+                {
+                    _direction = -_direction;
+                    _creature.SetDirection(_direction);
                 }
 
-                if (_groundCheck.IsTouchingLayer && _isSwaped)
-                    _isSwaped = false;
-
-                _creature.SetDirection(_direction);
-
-                yield return null;
+            yield return null;
             }
         }
-
     }
 }
