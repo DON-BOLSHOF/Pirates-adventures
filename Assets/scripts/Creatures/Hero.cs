@@ -32,14 +32,16 @@ namespace Assets.scripts.Creatures
 
         private GameSession _session;
 
+        private HealthComponent _health;
+
         private bool _isOnWall;
         private float _defaultGravityScale;
 
         private int _swordCount =>  _session.Data.Inventory.Count("Sword");
         private int _coinCount => _session.Data.Inventory.Count("Coin");
 
-
         private static readonly int _isOnWallKey = Animator.StringToHash("Is-on-wall");
+
 
         protected override void Awake()
         {
@@ -52,7 +54,7 @@ namespace Assets.scripts.Creatures
         {
             _session = FindObjectOfType<GameSession>();
 
-            var _health = GetComponent<HealthComponent>();
+            _health = GetComponent<HealthComponent>();
             _health.SetHP(_session.Data.Health);
 
             _session.Data.Inventory.OnChange += OnInventoryChanged;
@@ -154,7 +156,17 @@ namespace Assets.scripts.Creatures
 
             base.Attack();
         }
+        internal void UsePotion()
+        {
+            var potionCount = _session.Data.Inventory.Count("HealthPotion");
+            if (potionCount > 0)
+            {
+                _health.ModifyHealth(5);
 
+                _session.Data.Inventory.Remove("HealthPotion", 1);
+
+            }
+        }
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.IsInLayer(GroundLayer))

@@ -38,5 +38,11 @@ namespace Assets.scripts
                 _hero.Throw();
             }
         }
+
+        public void OnHelthPotion(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                _hero.UsePotion();
+        }
     }
 }

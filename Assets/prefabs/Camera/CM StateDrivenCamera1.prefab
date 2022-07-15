@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 5608887335828148598}
   - component: {fileID: 5608887335828148597}
   - component: {fileID: 5608887335828148596}
-  - component: {fileID: 5608887335828148603}
   - component: {fileID: 5608887335828148602}
   - component: {fileID: 5608887335828148601}
   m_Layer: 0
@@ -213,14 +212,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!81 &5608887335828148603
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5608887335828148600}
-  m_Enabled: 1
 --- !u!95 &5608887335828148602
 Animator:
   serializedVersion: 3

@@ -8,7 +8,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976982483446911306}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -21,6 +21,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-1386196493661415107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976982483446911306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314120a6e29b7804f826def5eb290306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timers:
+  - index: Destroying
+    time: 1
+    onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1976982483446911307}
+          m_TargetAssemblyTypeName: Assets.scripts.Components.DestroyObjectComponent,
+            Assembly-CSharp
+          m_MethodName: OnDestroy
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &6704211753927025701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,21 +80,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1976982483446911306}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 8626420026135487516}
-        m_TargetAssemblyTypeName: Assets.scripts.Components.AddCoinsComponent, Assembly-CSharp
-        m_MethodName: AddCoin
+      - m_Target: {fileID: 1145663011548225926}
+        m_TargetAssemblyTypeName: Assets.scripts.Components.Collectables.InventoryAddComponent,
+          Assembly-CSharp
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -72,6 +92,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5845281490168386577}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: -1386196493661415107}
+        m_TargetAssemblyTypeName: Assets.scripts.Components.TimerComponent, Assembly-CSharp
+        m_MethodName: SetTimer
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Destroying
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1976982483446911305}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
@@ -92,6 +136,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1433360767869468550, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6541758200367265216, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -146,6 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6541758200367265217, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
+    - {fileID: 1579837338982715673, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
 --- !u!1 &1976982483446911306 stripped
 GameObject:
@@ -162,14 +211,30 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 6541758200367265216, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
   m_PrefabInstance: {fileID: 4730848290313495689}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8626420026135487516 stripped
+--- !u!114 &1976982483446911307 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3895730481114202261, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6541758200367265218, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
   m_PrefabInstance: {fileID: 4730848290313495689}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976982483446911306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63425cbb54375114ea9be86e89728366, type: 3}
+  m_Script: {fileID: 11500000, guid: 995194429541dfd4297b4bcf252a58db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1145663011548225926 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5638910271780324623, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
+  m_PrefabInstance: {fileID: 4730848290313495689}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976982483446911306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0111750b9c7339e49a4668d3f1777c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &5845281490168386577 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1205212077656993944, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
+  m_PrefabInstance: {fileID: 4730848290313495689}
+  m_PrefabAsset: {fileID: 0}

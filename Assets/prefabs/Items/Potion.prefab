@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3872714238268141343}
   - component: {fileID: 3872714238268141342}
   - component: {fileID: 3872714238268141341}
-  - component: {fileID: 8550885968113767493}
+  - component: {fileID: 8231242881135102106}
   m_Layer: 11
   m_Name: Potion
   m_TagString: Untagged
@@ -118,22 +118,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 0
-      - m_Target: {fileID: 8550885968113767493}
-        m_TargetAssemblyTypeName: Assets.scripts.Components.ModifyHeathComponent,
+      - m_Target: {fileID: 8231242881135102106}
+        m_TargetAssemblyTypeName: Assets.scripts.Components.Collectables.InventoryAddComponent,
           Assembly-CSharp
-        m_MethodName: ModifyHealth
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -143,10 +131,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3872714238268141341}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 3872714238268141342}
+        m_TargetAssemblyTypeName: Assets.scripts.Components.DestroyObjectComponent,
+          Assembly-CSharp
+        m_MethodName: OnDestroy
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -209,7 +198,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.008569717, y: 0.0068559647}
   m_Size: {x: 0.08346176, y: 0.16916466}
   m_Direction: 0
---- !u!114 &8550885968113767493
+--- !u!114 &8231242881135102106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,7 +207,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3872714238268141340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58941b344c42cdc4b9749b34cd7ba3fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 0111750b9c7339e49a4668d3f1777c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 2
+  _id: HealthPotion
+  _count: 1
