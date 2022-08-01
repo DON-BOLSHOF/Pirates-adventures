@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer:
     serializedVersion: 2
-    m_Bits: 73
+    m_Bits: 72
   _isTouchingLayer: 0
   _target: {fileID: 250162015}
 --- !u!1 &250162014
@@ -103,7 +103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938619736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.173, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1734691260}
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _layer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
   _isTouchingLayer: 0
   _target: {fileID: 938619737}
 --- !u!1 &2631918459883244634
@@ -371,7 +371,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2631918461241146880}
   - component: {fileID: 2631918461241146881}
-  - component: {fileID: 2631918461241146886}
   - component: {fileID: 2631918461241146887}
   - component: {fileID: 2631918461241146884}
   - component: {fileID: 2631918461241146885}
@@ -380,13 +379,14 @@ GameObject:
   - component: {fileID: 2631918461241146941}
   - component: {fileID: 2631918461241146940}
   - component: {fileID: 2035997797}
+  - component: {fileID: 6380599262570129750}
   m_Layer: 10
   m_Name: Shark
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2631918461241146880
 Transform:
   m_ObjectHideFlags: 0
@@ -460,29 +460,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2631918461241146886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2631918461241146890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e2a31b1ffb6bb4fb5c879ff8d8fa85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 1
-  JumpSpeed: 0
-  DamageVelocity: 0
-  inversed: 1
-  _groundCheckRadious: 0
-  GroundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  _groundCheckPositionDelta: {x: 0, y: 0, z: 0}
-  _attackRange: {fileID: 2631918460398010956}
-  _particles: {fileID: 2631918461241146887}
 --- !u!114 &2631918461241146887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,16 +582,16 @@ MonoBehaviour:
   _onDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2631918461241146886}
-        m_TargetAssemblyTypeName: Assets.scripts.Creatures.Creature, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 1
+      - m_Target: {fileID: 2631918461241146884}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: hit
           m_BoolArgument: 0
         m_CallState: 2
   _onHealth:
@@ -676,6 +653,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _source: {fileID: 0}
   _sounds: []
+--- !u!114 &6380599262570129750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2631918461241146890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e0b3a5f695f3041a1a04d83c4d7ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpSpeed: 0
+  DamageVelocity: 1
+  inversed: 1
+  _groundCheckRadious: 0.1
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 72
+  _groundCheckPositionDelta: {x: 0, y: -0.18, z: 0}
+  _attackRange: {fileID: 2631918460398010956}
+  _particles: {fileID: 2631918461241146887}
 --- !u!1 &2631918461247066119
 GameObject:
   m_ObjectHideFlags: 0

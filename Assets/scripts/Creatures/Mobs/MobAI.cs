@@ -9,25 +9,25 @@ namespace Assets.Scripts.Creatures.Mobs
 {
     class MobAI : MonoBehaviour
     {
-        [SerializeField] private ColliderCheck _vision;
-        [SerializeField] private ColliderCheck _canAttack;
+        [SerializeField] protected ColliderCheck _vision;
+        [SerializeField] protected ColliderCheck _canAttack;
 
         [SerializeField] private float _alarmDelay;
         [SerializeField] private float _attackCoolDown;
-        [SerializeField] private float _missHeroCooldown = 1f;
+        [SerializeField] protected float _missHeroCooldown = 1f;
 
         private IEnumerator _current;
-        private GameObject _target;
+        protected GameObject _target;
 
         private static readonly int IsDeadKey = Animator.StringToHash("Is-Dead");
 
-        private SpawnListComponent _particles;
-        private Creature _creature;
+        protected SpawnListComponent _particles;
+        protected Creature _creature;
         private Animator _animator;
-        private bool _isDead;
-        private Patrol _patrol;
+        protected bool _isDead;
+        protected Patrol _patrol;
 
-        private void Awake()
+        protected void Awake()
         {
             _animator = GetComponent<Animator>();
             _particles = GetComponent<SpawnListComponent>();
@@ -40,7 +40,7 @@ namespace Assets.Scripts.Creatures.Mobs
             StartState(_patrol.DoPatrol());
         }
 
-        public void OnHeroInVision(GameObject go)
+        public virtual void OnHeroInVision(GameObject go)
         {
             if (_isDead)
                 return;
@@ -50,7 +50,7 @@ namespace Assets.Scripts.Creatures.Mobs
             StartState(AgroToHero());
         }
 
-        private IEnumerator AgroToHero()
+        protected IEnumerator AgroToHero()
         {
             LookAtHero();
             _particles.Spawn("ExclamationParticle");
@@ -59,14 +59,14 @@ namespace Assets.Scripts.Creatures.Mobs
             StartState(GoToHero());
         }
 
-        private void LookAtHero()
+        protected void LookAtHero()
         {
             var direction = GetDirection();
             _creature.SetDirection(Vector3.zero);
             _creature.UpgradeSpriteDirection(direction);
         }
 
-        private IEnumerator GoToHero()
+        protected virtual IEnumerator GoToHero()
         {
             while (_vision.IsTouchingLayer)
             {
@@ -88,7 +88,7 @@ namespace Assets.Scripts.Creatures.Mobs
             StartState(_patrol.DoPatrol());
         }
 
-        private IEnumerator Attack()
+        protected IEnumerator Attack()
         {
             while (_canAttack.IsTouchingLayer)
             {
@@ -99,20 +99,20 @@ namespace Assets.Scripts.Creatures.Mobs
             StartState(GoToHero());
         }
 
-        private void SetDirectionToTarget()
+        protected void SetDirectionToTarget()
         {
             var direction = GetDirection();
             _creature.SetDirection(direction);
         }
 
-        private Vector2 GetDirection()
+        protected Vector2 GetDirection()
         {
             var direction = _target.transform.position - transform.position;
             direction.y = 0;
             return direction.normalized;
         }
 
-        private void StartState(IEnumerator coroutine)
+        protected void StartState(IEnumerator coroutine)
         {
             _creature.SetDirection(Vector3.zero);
 

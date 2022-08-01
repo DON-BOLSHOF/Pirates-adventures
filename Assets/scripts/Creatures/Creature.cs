@@ -1,16 +1,16 @@
 ﻿using Assets.scripts.Components;
 using Assets.scripts.Components.Audio;
 using Assets.scripts.Components.ColliderBased;
+using Assets.scripts.Components.Stats;
 using Assets.scripts.Utils;
 using UnityEditor;
 using UnityEngine;
 
 namespace Assets.scripts.Creatures
 {
-    class Creature : MonoBehaviour
+    abstract class Creature : MonoBehaviour
     {
         [Header("Params")]
-        [SerializeField] private float _speed;
         [SerializeField] protected float JumpSpeed;
         [SerializeField] protected float DamageVelocity = 1;
 
@@ -24,10 +24,16 @@ namespace Assets.scripts.Creatures
         [SerializeField] protected CheckCircleOverlap _attackRange;
         [SerializeField] protected SpawnListComponent _particles;
 
+        public IStatsProvider Provider { get; set; }
+
         protected Animator Animator;
+
         protected PlaySoundsComponent Sounds;
+
         protected Rigidbody2D Rigidbody;
         protected Vector2 Direction;
+        protected float _speed => Provider.GetStats().Agility * 0.15f;
+
         protected bool IsOnGrounded;
         private bool _isJumping;
 
@@ -41,7 +47,16 @@ namespace Assets.scripts.Creatures
         {
             Rigidbody = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
-            Sounds = GetComponent<PlaySoundsComponent>(); 
+            Sounds = GetComponent<PlaySoundsComponent>();
+
+            Provider = SetProvider();
+        }
+
+        protected abstract IStatsProvider SetProvider();
+
+        public void OnDebuffed(IStatsProvider stats)
+        {
+            Provider = stats;
         }
 
         public void SetDirection(Vector2 direction)
@@ -61,15 +76,15 @@ namespace Assets.scripts.Creatures
 
         protected virtual void FixedUpdate()
         {
-                var xVelocity = Direction.x * _speed;
-                var yVelocity = CalculateYVeclocity();
-                Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
+            var xVelocity = Direction.x * _speed;
+            var yVelocity = CalculateYVeclocity();
+            Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
 
-                Animator.SetBool(IsGroundKey, IsOnGrounded);
-                Animator.SetFloat(Vertical_velocity, Rigidbody.velocity.y);
-                Animator.SetBool(IsRunningKey, Direction.x != 0);
+            Animator.SetBool(IsGroundKey, IsOnGrounded);
+            Animator.SetFloat(Vertical_velocity, Rigidbody.velocity.y);
+            Animator.SetBool(IsRunningKey, Direction.x != 0);
 
-                UpgradeSpriteDirection(new Vector3(xVelocity, yVelocity, 0));
+            UpgradeSpriteDirection(new Vector3(xVelocity, yVelocity, 0));
         }
 
 

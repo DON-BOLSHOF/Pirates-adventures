@@ -5,6 +5,7 @@ using UnityEditor.Animations;
 using Assets.scripts.Model;
 using Assets.scripts.Components.ColliderBased;
 using System.Collections;
+using Assets.scripts.Components.Stats;
 
 namespace Assets.scripts.Creatures
 {
@@ -60,6 +61,15 @@ namespace Assets.scripts.Creatures
             _session.Data.Inventory.OnChange += OnInventoryChanged;
 
             UpgradeHeroWeapon();
+        }
+
+        protected override IStatsProvider SetProvider()
+        {
+            IStatsProvider mHero = new SpecializatonStats(Specialization.Warrior);
+            mHero = new SpeedBuff(mHero);
+            mHero = new SpeedBuff(mHero);
+
+            return mHero;
         }
 
         private void OnInventoryChanged(string id, int value)

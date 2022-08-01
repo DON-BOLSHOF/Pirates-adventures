@@ -4,9 +4,9 @@ using UnityEngine;
 namespace Assets.scripts.Model
 {
     [Serializable]
-    class Cooldown
+    public class Cooldown
     {
-        [SerializeField] private float cooldownTime=2;
+        public float cooldownTime=2;
 
         private float lastChangedTime;
 
