@@ -56,7 +56,7 @@ namespace Assets.scripts.Creatures
             _session = FindObjectOfType<GameSession>();
 
             _health = GetComponent<HealthComponent>();
-            _health.SetHP(_session.Data.Health);
+            _health.SetHP(_session.Data.Health.Value);
 
             _session.Data.Inventory.OnChange += OnInventoryChanged;
 
@@ -103,7 +103,7 @@ namespace Assets.scripts.Creatures
         }
         public void OnHealthChanged(int currentHealth)
         {
-            _session.Data.Health = currentHealth;
+            _session.Data.Health.Value = currentHealth;
         }
 
         protected override float CalculateYVeclocity()

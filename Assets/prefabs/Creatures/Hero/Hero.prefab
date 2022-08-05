@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 315190888}
-  - component: {fileID: 315190890}
-  m_Layer: 9
-  m_Name: Vfx
+  - component: {fileID: 1258904093234833844}
+  m_Layer: 12
+  m_Name: AudioListener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,102 +31,14 @@ Transform:
   m_Father: {fileID: 1585796758791425880}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &315190890
-AudioSource:
+--- !u!81 &1258904093234833844
+AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315190887}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 84ce8f7d710bd134bbdf34ca33e6212d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 710551a0f331ce04faed2f7e0736d66f, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.374
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &542348234
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +49,7 @@ GameObject:
   m_Component:
   - component: {fileID: 542348235}
   - component: {fileID: 542348236}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: ThrowPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +144,7 @@ MonoBehaviour:
   _radius: 0.13
   _mask:
     serializedVersion: 2
-    m_Bits: 1527
+    m_Bits: 17409
   _tags:
   - Enemy
   _onOverlapEvent:
@@ -251,133 +163,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1015458135
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1015458136}
-  - component: {fileID: 1015458137}
-  m_Layer: 9
-  m_Name: MainTheme
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1015458136
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015458135}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1585796758791425880}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1015458137
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015458135}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: dfafd184006a6d64ab77037a1d1c69ca, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d62e1644756894c4889440aed30c20ae, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.194
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1467064792
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +274,7 @@ MonoBehaviour:
   _radius: 0.27
   _mask:
     serializedVersion: 2
-    m_Bits: 375
+    m_Bits: 128
   _tags:
   - Interactable
   _onOverlapEvent:
@@ -539,7 +324,6 @@ GameObject:
   - component: {fileID: 4290810624078977523}
   - component: {fileID: 8411523715797060321}
   - component: {fileID: 1925874374}
-  - component: {fileID: 3192064541558645453}
   m_Layer: 9
   m_Name: Hero
   m_TagString: Player
@@ -568,7 +352,6 @@ Transform:
   - {fileID: 542348235}
   - {fileID: 1467064793}
   - {fileID: 315190888}
-  - {fileID: 1015458136}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -768,6 +551,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: cead47f6-fd67-4f0b-a8d4-b936c9d7eb13
     m_ActionName: Hero/Throw[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8835830657017748256}
+        m_TargetAssemblyTypeName: Assets.scripts.HeroInputReader, Assembly-CSharp
+        m_MethodName: OnHelthPotion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 355c14f2-60fd-4b8e-a62c-fbe185ceb673
+    m_ActionName: Hero/HelthPotion[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -785,14 +584,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef43e45c0222dee478563cc27818d10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
-  JumpSpeed: 4
+  JumpSpeed: 5
   DamageVelocity: 4
   inversed: 0
   _groundCheckRadious: 0.1
   GroundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
   _groundCheckPositionDelta: {x: 0, y: -0.23, z: 0}
   _attackRange: {fileID: 4927058018159941285}
   _particles: {fileID: 8411523715797060321}
@@ -928,7 +726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493e229213061524195711b49a51728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 315190890}
+  _source: {fileID: 0}
   _sounds:
   - _id: Hurt
     _clip: {fileID: 8300000, guid: 4cfe9d35e0a90ee48aa92d835413f0c8, type: 3}
@@ -938,14 +736,6 @@ MonoBehaviour:
     _clip: {fileID: 8300000, guid: 75a69406b0a106341837c1d143fcf06f, type: 3}
   - _id: Range
     _clip: {fileID: 8300000, guid: 12da4cfc654d53a49b8bc615a8d27749, type: 3}
---- !u!81 &3192064541558645453
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585796758791425882}
-  m_Enabled: 1
 --- !u!1 &4077293590721400904
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +746,7 @@ GameObject:
   m_Component:
   - component: {fileID: 446995105447854047}
   - component: {fileID: 1037484583}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: JumpParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1002,7 +792,7 @@ GameObject:
   - component: {fileID: 4290810623596543000}
   - component: {fileID: 4290810623596543002}
   - component: {fileID: 4290810623596543003}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5863,7 +5653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4290810623883686420}
   - component: {fileID: 4290810623883686421}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: FootParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5908,7 +5698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2102561675103686000}
   - component: {fileID: 6742309652617036493}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: FallParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5953,7 +5743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7961446220902976737}
   - component: {fileID: 8475635853785501123}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: AttackParticlesPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

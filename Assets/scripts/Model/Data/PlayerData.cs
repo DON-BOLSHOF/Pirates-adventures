@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.scripts.Model.Data.Properties;
+using System;
 using UnityEngine;
 
 namespace Assets.scripts.Model.Data
@@ -10,7 +11,7 @@ namespace Assets.scripts.Model.Data
 
         public InventoryData Inventory => _inventory;
 
-        public int Health = 10;
+        public IntPersistantProperty Health = new IntPersistantProperty(); 
 
         public PlayerData Clone()
         {
