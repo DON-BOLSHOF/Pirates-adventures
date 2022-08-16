@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.scripts.Utils;
+using System;
 using UnityEngine;
 
 namespace Assets.scripts.Components.Audio
@@ -7,7 +8,12 @@ namespace Assets.scripts.Components.Audio
     {
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioData[] _sounds;
-        
+
+        private void Awake()
+        {
+            _source = AudioUtils.FindSFXSource();
+        }
+
         public void PlayClip(string id)
         {
             foreach(var sound in _sounds)

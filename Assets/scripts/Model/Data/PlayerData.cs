@@ -10,7 +10,6 @@ namespace Assets.scripts.Model.Data
         [SerializeField] private InventoryData _inventory;
 
         public InventoryData Inventory => _inventory;
-
         public IntPersistantProperty Health = new IntPersistantProperty(); 
 
         public PlayerData Clone()

@@ -1,4 +1,5 @@
 ﻿using Assets.scripts.Model.Data.Properties;
+using Assets.scripts.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,9 +12,11 @@ namespace Assets.scripts.UI.Widgets
 
         private FloatPersistantProperty _model;
 
+        private readonly CompositeDisposable _trash = new CompositeDisposable();
+
         private void Start()
         {
-            _slider.onValueChanged.AddListener(OnSliderValueChanged);
+            _trash.Retain(_slider.onValueChanged.Subscribe(OnSliderValueChanged));
         }
 
         private void OnSliderValueChanged(float value)
@@ -29,7 +32,7 @@ namespace Assets.scripts.UI.Widgets
 
             OnValueChanged(model.Value, model.Value);
 
-            model.OnChanged += OnValueChanged;
+            _trash.Retain(_model.Subscribe(OnValueChanged));
         }
 
         private void OnValueChanged(float newValue, float oldValue)
@@ -40,8 +43,7 @@ namespace Assets.scripts.UI.Widgets
 
         private void OnDestroy()
         {
-            _slider.onValueChanged.RemoveListener(OnSliderValueChanged);
-            _model.OnChanged -= OnValueChanged;
+            _trash.Dispose();
         }
     }
 }

@@ -1,37 +1,24 @@
-using System;
-using UnityEngine;
-
 namespace Assets.scripts.Model.Data.Properties
 {
-    [Serializable]
-    public abstract class PersistantProperties<TPropertyType>
+    public abstract class PersistantProperties<TPropertyType> : ObservableProperty<TPropertyType>
     {
-        [SerializeField] protected TPropertyType _value;
         protected TPropertyType _stored;
 
         private TPropertyType _default;
-
-        public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
-        public event OnPropertyChanged OnChanged;
 
         public PersistantProperties(TPropertyType defaultValue)
         {
             _default = defaultValue;
         }
 
-        public TPropertyType Value
+        public override TPropertyType Value
         {
             get => _value;
             set
             {
-                if (_stored.Equals(value))
-                    return;
-
-                var oldValue = _value;
+                base.Value = value;
                 Write(value);
                 _stored = _value = value;
-
-                OnChanged?.Invoke(value, oldValue); 
             }
         }
 

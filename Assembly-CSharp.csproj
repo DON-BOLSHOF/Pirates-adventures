@@ -54,12 +54,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\Components\ColliderBased\EnterTriggerPhysicalComponent.cs" />
+    <Compile Include="Assets\scripts\Model\Data\DialogData.cs" />
+    <Compile Include="Assets\scripts\UI\HUD\QuickInventory\InventoryItemWidget.cs" />
     <Compile Include="Assets\scripts\Components\ColliderBased\LineCastCheck.cs" />
     <Compile Include="Assets\scripts\Model\GameSession.cs" />
+    <Compile Include="Assets\scripts\Model\Definition\ThrowableItemsDefs.cs" />
     <Compile Include="Assets\scripts\Components\Stats\SpeedBuff.cs" />
+    <Compile Include="Assets\scripts\Model\Definition\ItemTag.cs" />
+    <Compile Include="Assets\scripts\Utils\Disposables\UnityEventExtensions.cs" />
     <Compile Include="Assets\scripts\Creatures\Hero.cs" />
+    <Compile Include="Assets\scripts\Components\Audio\PlaySFXSound.cs" />
     <Compile Include="Assets\scripts\Model\Data\Properties\PrefsPersistantProperty.cs" />
+    <Compile Include="Assets\scripts\UI\HUD\HUDController.cs" />
     <Compile Include="Assets\FletcherLibraries\Utility\IntegerMath\IntegerVector.cs" />
+    <Compile Include="Assets\scripts\Model\Data\Properties\ObservableProperty.cs" />
     <Compile Include="Assets\scripts\RoomMaster\Roomspawner.cs" />
     <Compile Include="Assets\scripts\Components\Movement\RoundMovement.cs" />
     <Compile Include="Assets\scripts\Components\ColliderBased\EnterTriggerComponentNonPhysical.cs" />
@@ -76,8 +84,10 @@
     <Compile Include="Assets\scripts\Creatures\Mobs\CrabbyAI.cs" />
     <Compile Include="Assets\scripts\Components\GoBased\GoContainerComponent.cs" />
     <Compile Include="Assets\scripts\UI\Settings\SettingsMenu.cs" />
+    <Compile Include="Assets\scripts\Utils\AudioUtils.cs" />
     <Compile Include="Assets\scripts\Components\ColliderBased\ColliderCheck.cs" />
     <Compile Include="Assets\scripts\RoomMaster\RoomTemplates.cs" />
+    <Compile Include="Assets\scripts\UI\HUD\Dialogs\DialogBoxController.cs" />
     <Compile Include="Assets\scripts\Components\Interaction\DoInteractionComponent.cs" />
     <Compile Include="Assets\scripts\FollowTarget.cs" />
     <Compile Include="Assets\scripts\Components\Stats\StatsDecorator.cs" />
@@ -89,6 +99,7 @@
     <Compile Include="Assets\scripts\Components\DestroyObjectComponent.cs" />
     <Compile Include="Assets\scripts\Components\Interaction\RequireItemComponent.cs" />
     <Compile Include="Assets\scripts\Components\MoveCamera.cs" />
+    <Compile Include="Assets\scripts\Utils\Disposables\CompositeDisposable.cs" />
     <Compile Include="Assets\scripts\Components\Stats\Weakness.cs" />
     <Compile Include="Assets\scripts\Components\SpawnListComponent.cs" />
     <Compile Include="Assets\scripts\Model\Definition\InventoryItemsDef.cs" />
@@ -96,8 +107,10 @@
     <Compile Include="Assets\scripts\Components\GoBased\RandomSpawner.cs" />
     <Compile Include="Assets\scripts\Utils\GameObjectExtensions.cs" />
     <Compile Include="Assets\scripts\Components\ColliderBased\CheckCircleOverlap.cs" />
+    <Compile Include="Assets\scripts\Model\Data\QuickInventoryModel.cs" />
     <Compile Include="Assets\scripts\Model\Data\InventoryData.cs" />
     <Compile Include="Assets\scripts\Components\Interaction\SwitchComponent.cs" />
+    <Compile Include="Assets\scripts\Utils\Disposables\ActionDisposable.cs" />
     <Compile Include="Assets\FletcherLibraries\Utility\UnityExtensions\StringExtensions.cs" />
     <Compile Include="Assets\scripts\Model\Data\Properties\FloatPersistantProperty.cs" />
     <Compile Include="Assets\scripts\Components\Stats\IStatsProvider.cs" />
@@ -126,16 +139,21 @@
     <Compile Include="Assets\scripts\Model\Data\InventoryItemData.cs" />
     <Compile Include="Assets\scripts\Model\Data\PlayerData.cs" />
     <Compile Include="Assets\scripts\Creatures\Mobs\Patrolling\PlatformPatrolling.cs" />
+    <Compile Include="Assets\scripts\Utils\EnumsUtils.cs" />
     <Compile Include="Assets\scripts\UI\MainMenu\MainMenuWindow.cs" />
+    <Compile Include="Assets\scripts\UI\HUD\QuickInventory\QuickInventoryController.cs" />
     <Compile Include="Assets\scripts\Components\states\SpriteAnimationStates.cs" />
     <Compile Include="Assets\scripts\Creatures\Mobs\Patrolling\PointPatrolling.cs" />
     <Compile Include="Assets\scripts\Components\ProbabilityDropComponent.cs" />
     <Compile Include="Assets\scripts\Components\SpawnComponent.cs" />
     <Compile Include="Assets\scripts\Components\Stats\SpecializationStats.cs" />
     <Compile Include="Assets\scripts\UI\AnimatedWindow.cs" />
+    <Compile Include="Assets\scripts\Utils\SpawnUtils.cs" />
     <Compile Include="Assets\scripts\Creatures\Mobs\TotemTower.cs" />
     <Compile Include="Assets\scripts\Creatures\Mobs\ShootingTrapAI.cs" />
+    <Compile Include="Assets\scripts\Model\Data\Properties\IntPersistantProperty.cs" />
     <Compile Include="Assets\scripts\Components\Audio\AudioSettingComponent.cs" />
+    <Compile Include="Assets\scripts\UI\Widgets\ProgressBarWidget.cs" />
     <Compile Include="Assets\scripts\Model\Data\GameSettings.cs" />
     <Compile Include="Assets\scripts\Components\Interaction\InteractableComponent.cs" />
     <Compile Include="Assets\scripts\Components\Stats\HellScream.cs" />
@@ -143,10 +161,8 @@
     <Compile Include="Assets\scripts\Components\Cheats\CheatsItem.cs" />
     <Compile Include="Assets\scripts\Model\Definition\PlayerDef.cs" />
     <Compile Include="Assets\scripts\Utils\HandlesUtils.cs" />
-    <Compile Include="Assets\scripts\UI\HUD\HUDController.cs" />
-    <Compile Include="Assets\scripts\UI\Widgets\ProgressBarWidget.cs" />
-    <Compile Include="Assets\scripts\Model\Data\Properties\IntPersistantProperty.cs" />
-    <Compile Include="Assets\scripts\Model\Data\Properties\ObservableProperty.cs" />
+    <Compile Include="Assets\scripts\Components\Dialogs\ShowDialogComponent.cs" />
+    <Compile Include="Assets\scripts\Model\Definition\DialogDef.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\textures\Cainos\Pixel Art Platformer - Village Props\Changelog.txt" />

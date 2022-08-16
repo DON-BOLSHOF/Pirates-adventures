@@ -1,15 +1,30 @@
-﻿using UnityEngine;
+﻿using Assets.scripts.Utils.Disposables;
+using System;
+using UnityEngine;
 
 namespace Assets.scripts.Model.Data.Properties
 {
-    class ObservableProperty<TPropertyType>
+    [Serializable]
+    public class ObservableProperty<TPropertyType>
     {
-        [SerializeField] private TPropertyType _value;
+        [SerializeField] protected TPropertyType _value;
 
         public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
         public event OnPropertyChanged OnChanged;
+        public IDisposable Subscribe(OnPropertyChanged call)
+        {
+            OnChanged += call;
+            return new ActionDisposable(() => OnChanged -= call);
+        }
+        
+        public IDisposable SubscribeAndInvoke(OnPropertyChanged call)
+        {
+            OnChanged += call;
+            call(_value,_value);
+            return new ActionDisposable(() => OnChanged -= call);
+        }
 
-        public TPropertyType Value
+        public virtual TPropertyType Value
         {
             get => _value;
             set
@@ -20,8 +35,13 @@ namespace Assets.scripts.Model.Data.Properties
                 var oldValue = _value;
                 _value = value;
 
-                OnChanged?.Invoke(_value, oldValue);
+                InvokeChangedEvent(_value, oldValue);
             }
+        }
+
+        protected void InvokeChangedEvent(TPropertyType newValue, TPropertyType oldValue)
+        {
+            OnChanged?.Invoke(newValue, oldValue);
         }
     }
 }

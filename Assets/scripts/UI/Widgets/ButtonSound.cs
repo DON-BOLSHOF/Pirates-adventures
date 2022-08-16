@@ -1,3 +1,4 @@
+using Assets.scripts.Utils;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,7 +12,7 @@ namespace Assets.scripts.UI.Widgets
 
         private void Start()
         {
-            _source = GameObject.FindWithTag("SFXAudioSource").GetComponent<AudioSource>();
+            _source = AudioUtils.FindSFXSource();
         }
 
         public void OnPointerClick(PointerEventData eventData)

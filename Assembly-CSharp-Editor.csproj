@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Assets\scripts\UI\Widgets\Editor\CustomButtonEditor.cs" />
     <Compile Include="Assets\scripts\Model\Definition\Editor\UnityAttributeIdDrawer.cs" />
+    <Compile Include="Assets\scripts\Components\Dialogs\Editor\ShowDialogComponentEditor.cs" />
+    <Compile Include="Assets\scripts\Utils\Editor\SerializedPropertyExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

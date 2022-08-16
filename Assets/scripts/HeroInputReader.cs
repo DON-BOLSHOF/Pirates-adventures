@@ -2,6 +2,7 @@ using Assets.scripts.Creatures;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using static Assets.scripts.Utils.EnumsUtils;
 
 namespace Assets.scripts
 {
@@ -31,18 +32,24 @@ namespace Assets.scripts
         {
             if (context.interaction is HoldInteraction && context.performed)
             {
-                StartCoroutine(_hero.LongThrow());
+                _hero.Throw(ThrowType.Long);
             }
             else if(context.interaction is PressInteraction)
             {
-                _hero.Throw();
+                _hero.Throw(ThrowType.Common);
             }
         }
 
         public void OnHelthPotion(InputAction.CallbackContext context)
         {
             if (context.performed)
-                _hero.UsePotion();
+                _hero.OnHealthPotion();
+        }
+
+        public void OnNextItem(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                _hero.NextItem();
         }
     }
 }
