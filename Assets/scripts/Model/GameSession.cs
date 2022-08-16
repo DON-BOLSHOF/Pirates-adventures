@@ -1,5 +1,6 @@
 ﻿using Assets.scripts.Model.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.scripts.Model
 {
@@ -9,9 +10,13 @@ namespace Assets.scripts.Model
         public PlayerData Data => _data;
 
         private PlayerData _save;
+        
+        public QuickInventoryModel QuickInventory { get; private set; }
 
         private void Awake()
         {
+            LoadHUD();
+
             if (IsSessionExit())
             {
                 DestroyImmediate(gameObject);
@@ -19,8 +24,19 @@ namespace Assets.scripts.Model
             else
             {
                 DontDestroyOnLoad(this);
+                InitModels();
                 Save();
             }
+        }
+
+        private void InitModels()
+        {
+            QuickInventory = new QuickInventoryModel(_data);
+        }
+
+        private void LoadHUD()
+        {
+            SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
         }
 
         private bool IsSessionExit()

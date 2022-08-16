@@ -6,9 +6,11 @@ namespace Assets.scripts.Model.Definition
     public class DefsFacade : ScriptableObject
     {
         [SerializeField] private InventoryItemsDef _items;
+        [SerializeField] private ThrowableItemsDefs _throwableItems;
         [SerializeField] private PlayerDef _player;
 
         public InventoryItemsDef Items => _items;
+        public ThrowableItemsDefs Throwable => _throwableItems;
 
         public PlayerDef Player => _player;
 

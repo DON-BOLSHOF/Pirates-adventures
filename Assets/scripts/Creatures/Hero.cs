@@ -6,6 +6,9 @@ using Assets.scripts.Model;
 using Assets.scripts.Components.ColliderBased;
 using System.Collections;
 using Assets.scripts.Components.Stats;
+using Assets.scripts.Model.Definition;
+using static Assets.scripts.Utils.EnumsUtils;
+using System;
 
 namespace Assets.scripts.Creatures
 {
@@ -24,11 +27,11 @@ namespace Assets.scripts.Creatures
         [Header("Particles")]
         [SerializeField] private ParticleSystem _hitParticles;
 
-        [SerializeField] private float  _slamDownVelocity = 3;
+        [SerializeField] private float _slamDownVelocity = 3;
 
         [SerializeField] private Cooldown _cooldownThrowing;
+        [SerializeField] private SpawnComponent _throwSpawner;
 
-        private Collider2D[] _interactResult = new Collider2D[1];
         private bool _allowDoubleJump;
 
         private GameSession _session;
@@ -38,11 +41,26 @@ namespace Assets.scripts.Creatures
         private bool _isOnWall;
         private float _defaultGravityScale;
 
-        private int _swordCount =>  _session.Data.Inventory.Count("Sword");
+        private const string SwordId = "Sword";
+
+        private int _swordCount => _session.Data.Inventory.Count(SwordId);
         private int _coinCount => _session.Data.Inventory.Count("Coin");
 
         private static readonly int _isOnWallKey = Animator.StringToHash("Is-on-wall");
 
+        private string SelectedId => _session.QuickInventory.SelectedItem.Id;
+
+        private bool CanThrow {
+            get
+            {
+                if (SelectedId == SwordId)
+                    return _swordCount > 1;
+
+                var def = DefsFacade.I.Items.Get(SelectedId);
+                return def.HasTag(ItemTag.Throwable);
+            }
+
+        }
 
         protected override void Awake()
         {
@@ -51,12 +69,17 @@ namespace Assets.scripts.Creatures
             _defaultGravityScale = Rigidbody.gravityScale;
         }
 
+        internal void NextItem()
+        {
+            _session.QuickInventory.SetItemNext();
+        }
+
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
 
             _health = GetComponent<HealthComponent>();
-            _health.SetHP(_session.Data.Health);
+            _health.SetHP(_session.Data.Health.Value);
 
             _session.Data.Inventory.OnChange += OnInventoryChanged;
 
@@ -74,7 +97,7 @@ namespace Assets.scripts.Creatures
 
         private void OnInventoryChanged(string id, int value)
         {
-            if (id == "Sword")
+            if (id == SwordId)
                 UpgradeHeroWeapon();
         }
 
@@ -83,7 +106,7 @@ namespace Assets.scripts.Creatures
             base.Update();
 
             var moveToSameDirection = Direction.x * transform.lossyScale.x > 0;
-            if(_wallCheck.IsTouchingLayer && moveToSameDirection)
+            if (_wallCheck.IsTouchingLayer && moveToSameDirection)
             {
                 _isOnWall = true;
                 Rigidbody.gravityScale = 0;
@@ -103,23 +126,23 @@ namespace Assets.scripts.Creatures
         }
         public void OnHealthChanged(int currentHealth)
         {
-            _session.Data.Health = currentHealth;
+            _session.Data.Health.Value = currentHealth;
         }
 
         protected override float CalculateYVeclocity()
         {
             var _isJumpPressing = Direction.y > 0;
 
-            if (IsOnGrounded || _isOnWall){_allowDoubleJump = true;}
+            if (IsOnGrounded || _isOnWall) { _allowDoubleJump = true; }
 
-            if(!_isJumpPressing && _isOnWall) { return 0f; }
-            
+            if (!_isJumpPressing && _isOnWall) { return 0f; }
+
             return base.CalculateYVeclocity();
         }
 
         protected override float Jump(float yVelocity)
         {
-         if (!IsOnGrounded && _allowDoubleJump)
+            if (!IsOnGrounded && _allowDoubleJump)
             {
                 _allowDoubleJump = false;
 
@@ -145,7 +168,7 @@ namespace Assets.scripts.Creatures
         private void SpawnCoins()
         {
             var numCoinsToDispose = Mathf.Min(_coinCount, 5);
-            _session.Data.Inventory.Remove("Coin",numCoinsToDispose);
+            _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
             var burst = _hitParticles.emission.GetBurst(0);
             burst.count = numCoinsToDispose;
@@ -166,7 +189,7 @@ namespace Assets.scripts.Creatures
 
             base.Attack();
         }
-        internal void UsePotion()
+        internal void OnHealthPotion()
         {
             var potionCount = _session.Data.Inventory.Count("HealthPotion");
             if (potionCount > 0)
@@ -187,7 +210,7 @@ namespace Assets.scripts.Creatures
                     _particles.Spawn("FallParticle");
                 }
 
-                if(contact.relativeVelocity.y >= DamageVelocity)
+                if (contact.relativeVelocity.y >= DamageVelocity)
                 {
                     GetComponent<HealthComponent>().ModifyHealth(-1);
                 }
@@ -199,26 +222,49 @@ namespace Assets.scripts.Creatures
             Animator.runtimeAnimatorController = _swordCount > 0 ? _armed : _disarmed;
         }
 
-        public void Throw()
+        public void onCommonThrow(string throwableId)
         {
-            if (_swordCount > 1 && _cooldownThrowing.IsReady)
+                OnThrowing();
+                _throwSpawner.Spawn();
+                _session.Data.Inventory.Remove(throwableId, 1);
+        }
+
+        public IEnumerator LongThrow(string throwableId)
+        {
+                for (int i = 0; i < 3 && ((throwableId == SwordId && _swordCount > 1) || (throwableId != SwordId)); i++, _session.Data.Inventory.Remove(throwableId, 1))
+                {
+                    OnThrowing();
+                    _throwSpawner.Spawn();
+                    yield return new WaitForSeconds(_throwDelay);
+                }
+        }
+
+        public void Throw(ThrowType throwType)
+        {
+            if (CanThrow && _cooldownThrowing.IsReady)
             {
-                _particles.Spawn("ThrowSword");
-                _session.Data.Inventory.Remove("Sword", 1);
-                Sounds.PlayClip("Range");
-                _cooldownThrowing.Reset();
+                var throwableId = _session.QuickInventory.SelectedItem.Id;
+                var throwableDef = DefsFacade.I.Throwable.Get(throwableId);
+                _throwSpawner.SetPrefab(throwableDef.ProjectTile);
+
+                switch (throwType)
+                {
+                    case ThrowType.Common:
+                        onCommonThrow(throwableId);
+                        break;
+                    case ThrowType.Long:
+                        StartCoroutine(LongThrow(throwableId));
+                        break;
+                    default:
+                        throw new ArgumentException("Invalid type of enum");
+                }
             }
         }
 
-        public IEnumerator LongThrow()
+        public void OnThrowing()
         {
-
-                for (int i = 0; i < 3 && _swordCount > 1; i++, _session.Data.Inventory.Remove("Sword", 1))
-                {
-                    _particles.Spawn("ThrowSword");
-                    Sounds.PlayClip("Range");
-                    yield return new WaitForSeconds(_throwDelay);
-                }
+            Sounds.PlayClip("Range");
+            _cooldownThrowing.Reset();
         }
     }
 }

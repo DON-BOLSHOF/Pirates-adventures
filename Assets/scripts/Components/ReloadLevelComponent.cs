@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace Assets.scripts.Components
 {
-    class ReloadLevelComponent : MonoBehaviour
+    public class ReloadLevelComponent : MonoBehaviour
     {
         public void ReloadLevel()
         {

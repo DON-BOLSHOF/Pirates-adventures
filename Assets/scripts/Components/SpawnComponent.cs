@@ -1,3 +1,5 @@
+using Assets.scripts.Utils;
+using System;
 using UnityEngine;
 
 
@@ -11,8 +13,16 @@ namespace Assets.scripts.Components
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            var instantiate = Instantiate(_prefab, _target.position, Quaternion.identity);
-            instantiate.transform.localScale = _target.lossyScale;
+            var instance = SpawnUtils.Spawn(_prefab, _target.position);
+
+            var scale = _target.lossyScale;
+            instance.transform.localScale = scale;
+            instance.SetActive(true);
+        }
+
+        internal void SetPrefab(GameObject prefab)
+        {
+            _prefab = prefab;
         }
     }
 }

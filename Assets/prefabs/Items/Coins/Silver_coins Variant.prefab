@@ -93,8 +93,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 5845281490168386577}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+      - m_Target: {fileID: 3802516221459801643}
+        m_TargetAssemblyTypeName: Assets.scripts.Components.Audio.PlaySFXSound, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -233,8 +233,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0111750b9c7339e49a4668d3f1777c57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &5845281490168386577 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1205212077656993944, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
+--- !u!114 &3802516221459801643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8458350740591854242, guid: 186e3a9e94cea9147b9fd010bd662b0b, type: 3}
   m_PrefabInstance: {fileID: 4730848290313495689}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976982483446911306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d58b11d48ef1e14ab71a2e38c84af09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

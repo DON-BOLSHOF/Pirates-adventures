@@ -1,6 +1,7 @@
 ﻿using Assets.scripts.Model.Definition;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.scripts.Model.Data
@@ -21,7 +22,7 @@ namespace Assets.scripts.Model.Data
             var itemDef = DefsFacade.I.Items.Get(id);
             if (itemDef.IsVoid) return;
 
-            if (itemDef.IsStackable)
+            if (itemDef.HasTag(ItemTag.Stackable))
             {
                 AddToStack(id, value);
             }
@@ -64,7 +65,7 @@ namespace Assets.scripts.Model.Data
             var itemDef = DefsFacade.I.Items.Get(id);
             if (itemDef.IsVoid) return;
 
-            if (itemDef.IsStackable)
+            if (itemDef.HasTag(ItemTag.Stackable))
             {
                 RemoveFromStack(id, value);
             }
@@ -105,6 +106,21 @@ namespace Assets.scripts.Model.Data
             }
 
             return null;
+        }
+
+        public InventoryItemData[] GetAll(params ItemTag[] tags)
+        {
+            var retValues = new List<InventoryItemData>();
+
+            foreach(var item in _inventory)
+            {
+                var itemDef = DefsFacade.I.Items.Get(item.Id);
+                var isAllRequirementsMet = tags.All(x => itemDef.HasTag(x));
+                if (isAllRequirementsMet)
+                    retValues.Add(item);
+            }
+
+            return retValues.ToArray();
         }
 
         public int Count(string id)
