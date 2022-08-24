@@ -6,7 +6,6 @@ namespace Assets.scripts.Components.Stats
     {
         public HellScream(IStatsProvider statsProvider) : base(statsProvider)
         {
-
             _duration = new Cooldown { cooldownTime =5f};
             _duration.Reset();
         }

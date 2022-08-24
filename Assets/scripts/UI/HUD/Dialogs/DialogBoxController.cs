@@ -1,6 +1,5 @@
 ﻿using Assets.scripts.Model.Data;
 using Assets.scripts.Utils;
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -89,7 +88,7 @@ namespace Assets.scripts.UI.HUD.Dialogs
             if (_typingRoutine != null)
                 StopCoroutine(_typingRoutine);
 
-            _typing = null;
+            //_typing = null;
         }
 
         private IEnumerator TypeDialogText()
@@ -108,7 +107,7 @@ namespace Assets.scripts.UI.HUD.Dialogs
 
         private  void OnCloseDialogAnimation()
         {
-            //Destroy(gameObject);
+            _container.SetActive(false);
         }
     }
 }

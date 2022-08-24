@@ -54,7 +54,7 @@ namespace Assets.scripts.Creatures
 
         protected abstract IStatsProvider SetProvider();
 
-        public void OnDebuffed(IStatsProvider stats)
+        public void OnBuffed(IStatsProvider stats)
         {
             Provider = stats;
         }

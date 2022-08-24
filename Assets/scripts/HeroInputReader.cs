@@ -43,7 +43,7 @@ namespace Assets.scripts
         public void OnHelthPotion(InputAction.CallbackContext context)
         {
             if (context.performed)
-                _hero.OnHealthPotion();
+                _hero.OnPotion();
         }
 
         public void OnNextItem(InputAction.CallbackContext context)

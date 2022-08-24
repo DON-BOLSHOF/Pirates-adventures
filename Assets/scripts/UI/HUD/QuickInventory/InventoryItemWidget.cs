@@ -1,13 +1,14 @@
 ﻿using Assets.scripts.Model;
 using Assets.scripts.Model.Data;
 using Assets.scripts.Model.Definition;
+using Assets.scripts.UI.Widgets;
 using Assets.scripts.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.scripts.UI.HUD.QuickInventory
 {
-    class InventoryItemWidget : MonoBehaviour
+    class InventoryItemWidget : MonoBehaviour, IItemRenderer<InventoryItemData>
     {
         [SerializeField] private Image _icon;
         [SerializeField] private GameObject _selection;

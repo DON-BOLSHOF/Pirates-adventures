@@ -59,7 +59,6 @@ namespace Assets.scripts.Creatures
                 var def = DefsFacade.I.Items.Get(SelectedId);
                 return def.HasTag(ItemTag.Throwable);
             }
-
         }
 
         protected override void Awake()
@@ -82,6 +81,7 @@ namespace Assets.scripts.Creatures
             _health.SetHP(_session.Data.Health.Value);
 
             _session.Data.Inventory.OnChange += OnInventoryChanged;
+            _health.OnChange.AddListener(OnHealthChanged);
 
             UpgradeHeroWeapon();
         }
@@ -123,6 +123,7 @@ namespace Assets.scripts.Creatures
         private void OnDestroy()
         {
             _session.Data.Inventory.OnChange -= OnInventoryChanged;
+            _health.OnChange.RemoveAllListeners();
         }
         public void OnHealthChanged(int currentHealth)
         {
@@ -189,15 +190,32 @@ namespace Assets.scripts.Creatures
 
             base.Attack();
         }
-        internal void OnHealthPotion()
+        public  void OnPotion()
         {
-            var potionCount = _session.Data.Inventory.Count("HealthPotion");
+            if (!SelectedId.Contains("Potion"))
+                return;
+
+            var potionCount = _session.Data.Inventory.Count(SelectedId);
             if (potionCount > 0)
             {
-                _health.ModifyHealth(5);
+                switch (SelectedId)
+                {
+                    case "HealthPotion":
+                        _health.ModifyHealth(3);
+                        break;
+                    case "BigHealthPotion":
+                        _health.ModifyHealth(5);
+                        break;
+                    case "SpeedPotion":
+                        OnBuffed(new ExtraSpeed(Provider));
+                        break;
+                    default:
+                        throw new ArgumentException("Invalid type of Potion");
+                }
 
-                _session.Data.Inventory.Remove("HealthPotion", 1);
-
+                _session.Data.Inventory.Remove(SelectedId, 1);
+                _particles.Spawn("PosionParticle");
+                Sounds.PlayClip("PosionUsing");
             }
         }
         private void OnCollisionEnter2D(Collision2D collision)
@@ -222,7 +240,7 @@ namespace Assets.scripts.Creatures
             Animator.runtimeAnimatorController = _swordCount > 0 ? _armed : _disarmed;
         }
 
-        public void onCommonThrow(string throwableId)
+        public void OnCommonThrow(string throwableId)
         {
                 OnThrowing();
                 _throwSpawner.Spawn();
@@ -250,7 +268,7 @@ namespace Assets.scripts.Creatures
                 switch (throwType)
                 {
                     case ThrowType.Common:
-                        onCommonThrow(throwableId);
+                        OnCommonThrow(throwableId);
                         break;
                     case ThrowType.Long:
                         StartCoroutine(LongThrow(throwableId));

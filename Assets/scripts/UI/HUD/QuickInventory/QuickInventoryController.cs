@@ -1,8 +1,7 @@
 ﻿using Assets.scripts.Model;
 using Assets.scripts.Model.Data;
-using Assets.scripts.Model.Definition;
+using Assets.scripts.UI.Widgets;
 using Assets.scripts.Utils.Disposables;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.scripts.UI.HUD.QuickInventory
@@ -15,10 +14,13 @@ namespace Assets.scripts.UI.HUD.QuickInventory
         private readonly CompositeDisposable _trash = new CompositeDisposable();
 
         private GameSession _session;
-        private List<InventoryItemWidget> _createdItem = new List<InventoryItemWidget>();
+
+        private DataGroup<InventoryItemData, InventoryItemWidget>  _dataGroup;
 
         private void Start()
         {
+            _dataGroup = new DataGroup<InventoryItemData, InventoryItemWidget>(_prefab, _container);
+
             _session = FindObjectOfType<GameSession>();
             _trash.Retain(_session.QuickInventory.Subscribe(Rebuild));
 
@@ -28,22 +30,7 @@ namespace Assets.scripts.UI.HUD.QuickInventory
         private void Rebuild()
         {
             var inventory = _session.QuickInventory.Inventory;
-
-            for (int i = _createdItem.Count; i < inventory.Length; i++) {
-                var item = Instantiate(_prefab, _container);
-                _createdItem.Add(item);
-            }
-
-            for(int i = 0; i< inventory.Length; i++)
-            {
-                _createdItem[i].SetData(inventory[i], i);
-                _createdItem[i].gameObject.SetActive(true);
-            }
-
-            for(int i = inventory.Length; i<_createdItem.Count; i++)
-            {
-                _createdItem[i].gameObject.SetActive(false);
-            }
+            _dataGroup.SetData(inventory);
         }
 
         private void OnDestroy()

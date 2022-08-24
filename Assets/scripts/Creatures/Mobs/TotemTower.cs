@@ -19,7 +19,7 @@ namespace Assets.scripts.Creatures.Mobs
             {
                 trap.enabled = false;
                 var hp = trap.GetComponent<HealthComponent>();
-                hp._onDie.AddListener(() => OnTrapDead(trap));
+                hp.OnDie.AddListener(() => OnTrapDead(trap));
             }
         }
 

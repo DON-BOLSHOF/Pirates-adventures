@@ -163,6 +163,51 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1204616293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1204616294}
+  - component: {fileID: 1204616295}
+  m_Layer: 9
+  m_Name: PosionParticles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1204616294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204616293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1585796758791425880}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1204616295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204616293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ac0e2a77a94ff4fa8bec212fdace63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1204616294}
+  _prefab: {fileID: 581916202060019402, guid: cf7b05e8ae8dcfc42880bdfaed45c9a4, type: 3}
 --- !u!1 &1467064792
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +397,7 @@ Transform:
   - {fileID: 542348235}
   - {fileID: 1467064793}
   - {fileID: 315190888}
+  - {fileID: 1204616294}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -674,10 +720,10 @@ MonoBehaviour:
           m_StringArgument: Hurt
           m_BoolArgument: 0
         m_CallState: 2
-  _onHealth:
+  _onHeal:
     m_PersistentCalls:
       m_Calls: []
-  _onDie:
+  OnDie:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
@@ -693,21 +739,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onChange:
+  OnChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3890753351861873662}
-        m_TargetAssemblyTypeName: Assets.scripts.Hero, Assembly-CSharp
-        m_MethodName: OnHealthChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &8411523715797060321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +763,8 @@ MonoBehaviour:
     Component: {fileID: 6742309652617036493}
   - id: AttackParticle
     Component: {fileID: 8475635853785501123}
+  - id: ThrowSword
+    Component: {fileID: 542348236}
   - id: ThrowSword
     Component: {fileID: 542348236}
 --- !u!114 &1925874374

@@ -32,7 +32,7 @@ namespace Assets.scripts.Creatures.Mobs
         public void Screaming(GameObject go)
         {
             var hero = go.GetComponent<Hero>();
-            hero?.OnDebuffed(new HellScream(hero.Provider));
+            hero?.OnBuffed(new HellScream(hero.Provider));
         }
     }
 }

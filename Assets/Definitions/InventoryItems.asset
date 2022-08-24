@@ -25,3 +25,9 @@ MonoBehaviour:
   - _id: PearlProjectTile
     _icon: {fileID: 21300000, guid: f55f06e47bfcceb4e89780d562ed57ed, type: 3}
     _tags: 010000000000000002000000
+  - _id: BigHealthPotion
+    _icon: {fileID: -5350642420048649843, guid: 2ff62cf139fc22f449628445a2a1523c, type: 3}
+    _tags: 0100000000000000
+  - _id: SpeedPotion
+    _icon: {fileID: -860807820763296739, guid: 0ca822b9a1a97104791494785e0a158c, type: 3}
+    _tags: 0100000000000000

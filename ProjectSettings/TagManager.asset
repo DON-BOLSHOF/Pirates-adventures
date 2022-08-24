@@ -12,6 +12,7 @@ TagManager:
   - Interactable
   - Wall
   - SFXAudioSource
+  - HUDCanvas
   layers:
   - Default
   - TransparentFX
@@ -54,4 +55,7 @@ TagManager:
     locked: 0
   - name: Hero
     uniqueID: 1353099291
+    locked: 0
+  - name: Creature
+    uniqueID: 2965257829
     locked: 0

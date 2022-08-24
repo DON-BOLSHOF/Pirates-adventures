@@ -1,7 +1,7 @@
 ﻿using Assets.scripts.Model;
 using Assets.scripts.Model.Definition;
 using Assets.scripts.UI.Widgets;
-using System;
+using Assets.scripts.Utils;
 using UnityEngine;
 
 namespace Assets.scripts.UI.HUD
@@ -25,6 +25,10 @@ namespace Assets.scripts.UI.HUD
             var maxHealth = DefsFacade.I.Player.MaxHealth;
             var value = (float)newValue / maxHealth;
             _healthBar.SetProgress(value);
+        }
+        public void OnShowSessionMenu()
+        {
+            WindowUtils.CreateWindow("UI/SessionMenu");
         }
 
         private void OnDestroy()

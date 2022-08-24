@@ -15,6 +15,7 @@ namespace Assets.Scripts.Creatures.Mobs
         [SerializeField] private float _alarmDelay;
         [SerializeField] private float _attackCoolDown;
         [SerializeField] protected float _missHeroCooldown = 1f;
+        [SerializeField] private float _threshold;
 
         private IEnumerator _current;
         protected GameObject _target;
@@ -76,7 +77,11 @@ namespace Assets.Scripts.Creatures.Mobs
                 }
                 else
                 {
-                    SetDirectionToTarget();
+                    var horizontalDelta = Mathf.Abs(_target.transform.position.x - transform.position.x);
+                    if (horizontalDelta >= _threshold)
+                        SetDirectionToTarget();
+                    else
+                        _creature.SetDirection(Vector2.zero);
                 }
                 yield return null;
             }

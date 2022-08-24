@@ -1,4 +1,5 @@
 ﻿using Assets.scripts.Model.Data;
+using Assets.scripts.Utils.Disposables;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,8 @@ namespace Assets.scripts.Model
         private PlayerData _save;
         
         public QuickInventoryModel QuickInventory { get; private set; }
+
+        private CompositeDisposable _trash = new CompositeDisposable();
 
         private void Awake()
         {
@@ -32,6 +35,7 @@ namespace Assets.scripts.Model
         private void InitModels()
         {
             QuickInventory = new QuickInventoryModel(_data);
+            _trash.Retain(QuickInventory);
         }
 
         private void LoadHUD()
@@ -59,6 +63,13 @@ namespace Assets.scripts.Model
         public void LoadLastSave()
         {
             _data = _save.Clone();
+
+            _trash.Dispose();
+            InitModels();
+        }
+        private void OnDestroy()
+        {
+            _trash.Dispose();
         }
     }
 }
