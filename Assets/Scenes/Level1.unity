@@ -14478,14 +14478,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _external:
   - _sentences:
-    - Biba i boba lox
-    - fhfhf
+    - To be or not to be?
+    - And with whom should be?
+    - Polinka or Lusy?
     _portrait: {fileID: 21300000, guid: 9f690ccb9f3cc3544ad8cafdeb51e27b, type: 3}
     _speakerName: Captain
     _isReversed: 0
   - _sentences:
-    - mm
-    - Vlados Lox
+    - Indeed...
+    - A question what should be solved...
+    - But now you have to go, Nastysha wouldnt wait long
     _portrait: {fileID: 21300000, guid: 9f690ccb9f3cc3544ad8cafdeb51e27b, type: 3}
     _speakerName: Shiza
     _isReversed: 1

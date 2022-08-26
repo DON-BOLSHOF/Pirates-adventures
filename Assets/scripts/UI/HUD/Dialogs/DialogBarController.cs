@@ -28,18 +28,20 @@ namespace Assets.scripts.UI.HUD.Dialogs
         private int _currentConversationIndex;
         private string _currentSentence => _currentDialog.Sentences[_currentSentenceIndex];
 
-        private PortraitItemWidget _currentPortrait {
+
+        private PortraitItemWidget _currentPortrait;
+        private PortraitItemWidget CurrentPortrait {
             get { return _currentPortrait; }
             set
             {
-                if (_currentPortrait == value)
+                if (CurrentPortrait == value)
                     return;
 
-                if(_currentPortrait != null)
-                    PortraitConstriction(_currentPortrait);
+                if(CurrentPortrait != null)
+                    PortraitConstriction(CurrentPortrait);
 
                 _currentPortrait = value;
-                _currentPortrait.SetPortrait(value.Portrait);
+                CurrentPortrait.SetPortrait(_currentDialog.Portrait, _currentDialog.IsReversed);
             }
         }
 
@@ -61,6 +63,8 @@ namespace Assets.scripts.UI.HUD.Dialogs
             var texts =_bar.GetComponentsInChildren(typeof(Text));
             _speakerName = (Text) texts[0];
             _text = (Text)texts[1];
+
+            CurrentPortrait = new PortraitItemWidget();
         }
 
         public void ShowDialog(DialogBarData[] data)
@@ -69,8 +73,8 @@ namespace Assets.scripts.UI.HUD.Dialogs
             _text.text = string.Empty;
 
             _sfxSource.PlayOneShot(_open);
-            _animator.SetBool(IsOpen, true);
             _container.SetActive(true);
+            _animator.SetBool(IsOpen, true);
             InitDialog(data);
         }
 
@@ -102,8 +106,8 @@ namespace Assets.scripts.UI.HUD.Dialogs
         } 
         public void OnStartDialogAnimation()
         {
-            _currentPortrait = _currentDialog.IsReversed ? _firstPortrait : _secondPortrait;
-            PortraitWiding(_currentPortrait);
+            CurrentPortrait = _currentDialog.IsReversed ? _secondPortrait : _firstPortrait;
+            PortraitWiding(CurrentPortrait);
             _typingRoutine = StartCoroutine(TypeDialogText());
         }
 
@@ -131,7 +135,6 @@ namespace Assets.scripts.UI.HUD.Dialogs
             {
                 _currentConversationIndex++;
                 _currentSentenceIndex = 0;
-                _currentPortrait = _currentDialog.IsReversed ? _firstPortrait : _secondPortrait;
                 var isDialogCompleted = _currentConversationIndex > _conversations.Length - 1;
 
                 if (isDialogCompleted)
@@ -139,7 +142,9 @@ namespace Assets.scripts.UI.HUD.Dialogs
                     HideDialogBar();
                     return;
                 }
-                PortraitWiding(_currentPortrait);
+
+                CurrentPortrait = _currentDialog.IsReversed ? _secondPortrait : _firstPortrait;
+                PortraitWiding(CurrentPortrait);
             }
 
             OnStartTypingAnimation();
@@ -147,6 +152,7 @@ namespace Assets.scripts.UI.HUD.Dialogs
 
         private void HideDialogBar()
         {
+            _currentPortrait.ConstrictPortrait();
             _animator.SetBool(IsOpen, false);
             _sfxSource.PlayOneShot(_close);
         }

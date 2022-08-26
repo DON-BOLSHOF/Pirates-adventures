@@ -77,6 +77,7 @@
     <Compile Include="Assets\scripts\Model\Definition\DefsFacade.cs" />
     <Compile Include="Assets\scripts\Components\Cheats\CheatController.cs" />
     <Compile Include="Assets\scripts\Components\Stats\Specialization.cs" />
+    <Compile Include="Assets\scripts\UI\Widgets\PortraitItemWidget.cs" />
     <Compile Include="Assets\scripts\Components\Audio\PlaySoundsComponent.cs" />
     <Compile Include="Assets\scripts\UI\HUD\Dialogs\OptionItemWidget.cs" />
     <Compile Include="Assets\scripts\Components\Stats\ExtraSpeed.cs" />
@@ -100,12 +101,14 @@
     <Compile Include="Assets\scripts\Components\Interaction\DoInteractionComponent.cs" />
     <Compile Include="Assets\scripts\FollowTarget.cs" />
     <Compile Include="Assets\scripts\Components\Stats\StatsDecorator.cs" />
+    <Compile Include="Assets\scripts\UI\HUD\SettingsButton.cs" />
     <Compile Include="Assets\scripts\Components\states\EnterTriggerStates.cs" />
     <Compile Include="Assets\scripts\Model\Weapons\SinusoidalProjectTile.cs" />
     <Compile Include="Assets\scripts\Model\Definition\InventoryIdAttribute.cs" />
     <Compile Include="Assets\scripts\Components\Stats\CreatureStats.cs" />
     <Compile Include="Assets\scripts\Components\DestroyObjectComponent.cs" />
     <Compile Include="Assets\scripts\Components\Interaction\RequireItemComponent.cs" />
+    <Compile Include="Assets\scripts\UI\AnimatedWindow.cs" />
     <Compile Include="Assets\scripts\Components\MoveCamera.cs" />
     <Compile Include="Assets\scripts\Utils\Disposables\CompositeDisposable.cs" />
     <Compile Include="Assets\scripts\Components\Dialogs\ShowOptionsComponent.cs" />
@@ -135,6 +138,7 @@
     <Compile Include="Assets\scripts\Components\TimerComponent.cs" />
     <Compile Include="Assets\scripts\Components\states\State.cs" />
     <Compile Include="Assets\scripts\Components\Stats\StatsStates.cs" />
+    <Compile Include="Assets\scripts\UI\Settings\SettingsMenu.cs" />
     <Compile Include="Assets\scripts\UI\Windows\Settings\SettingsWindow.cs" />
     <Compile Include="Assets\scripts\Components\HealthComponent.cs" />
     <Compile Include="Assets\scripts\Creatures\Mobs\Crab.cs" />
@@ -143,6 +147,7 @@
     <Compile Include="Assets\scripts\Model\Weapons\BaseProjectTile.cs" />
     <Compile Include="Assets\scripts\UI\Widgets\CustomButton.cs" />
     <Compile Include="Assets\scripts\UI\Widgets\AudioSettingsWidget.cs" />
+    <Compile Include="Assets\scripts\UI\MainMenu\MainMenuWindow.cs" />
     <Compile Include="Assets\scripts\UI\Localization\LocalizeText.cs" />
     <Compile Include="Assets\scripts\UI\Widgets\ButtonSound.cs" />
     <Compile Include="Assets\scripts\Model\Cooldown.cs" />
@@ -168,6 +173,7 @@
     <Compile Include="Assets\scripts\Creatures\Mobs\TotemTower.cs" />
     <Compile Include="Assets\scripts\Creatures\Mobs\ShootingTrapAI.cs" />
     <Compile Include="Assets\scripts\Model\Data\Properties\IntPersistantProperty.cs" />
+    <Compile Include="Assets\scripts\UI\Settings\SettingsWindow.cs" />
     <Compile Include="Assets\scripts\Components\Audio\AudioSettingComponent.cs" />
     <Compile Include="Assets\scripts\UI\Widgets\ProgressBarWidget.cs" />
     <Compile Include="Assets\scripts\Model\Data\GameSettings.cs" />
@@ -178,7 +184,6 @@
     <Compile Include="Assets\scripts\Components\Cheats\CheatsItem.cs" />
     <Compile Include="Assets\scripts\Model\Definition\PlayerDef.cs" />
     <Compile Include="Assets\scripts\Utils\HandlesUtils.cs" />
-    <Compile Include="Assets\scripts\UI\Widgets\PortraitItemWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\textures\Cainos\Pixel Art Platformer - Village Props\Changelog.txt" />
