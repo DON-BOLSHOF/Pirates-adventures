@@ -1,10 +1,10 @@
-﻿using Assets.scripts.Components;
-using Assets.scripts.Model;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using PixelCrew.Components;
+using PixelCrew.Model;
 using UnityEngine;
 
-namespace Assets.scripts.Creatures.Mobs
+namespace PixelCrew.Creatures.Mobs
 {
     class TotemTower : MonoBehaviour
     {
@@ -19,7 +19,7 @@ namespace Assets.scripts.Creatures.Mobs
             {
                 trap.enabled = false;
                 var hp = trap.GetComponent<HealthComponent>();
-                hp._onDie.AddListener(() => OnTrapDead(trap));
+                hp.OnDie.AddListener(() => OnTrapDead(trap));
             }
         }
 

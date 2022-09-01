@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.scripts.Model.Weapons
+namespace PixelCrew.Model.Weapons
 {
     class SinusoidalProjectTile : BaseProjectTile
     {

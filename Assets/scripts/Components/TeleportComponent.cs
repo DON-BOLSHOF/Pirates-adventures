@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.scripts.Components
+namespace PixelCrew.Components
 {
     class TeleportComponent : MonoBehaviour
     {

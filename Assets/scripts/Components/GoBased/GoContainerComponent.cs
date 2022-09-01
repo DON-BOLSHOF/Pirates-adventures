@@ -1,7 +1,7 @@
-﻿using Assets.script.Components;
+﻿using PixelCrew.script.Components;
 using UnityEngine;
 
-namespace Assets.scripts.Components.GoBased
+namespace PixelCrew.Components.GoBased
 {
     class GoContainerComponent : MonoBehaviour
     {

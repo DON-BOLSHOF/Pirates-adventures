@@ -1,9 +1,11 @@
-using Assets.scripts.Creatures;
+using PixelCrew.Creatures;
+using PixelCrew.Utils;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using static PixelCrew.Utils.EnumsUtils;
 
-namespace Assets.scripts
+namespace PixelCrew
 {
     public class HeroInputReader : MonoBehaviour
     {
@@ -31,18 +33,24 @@ namespace Assets.scripts
         {
             if (context.interaction is HoldInteraction && context.performed)
             {
-                StartCoroutine(_hero.LongThrow());
+                _hero.Throw(EnumsUtils.ThrowType.Long);
             }
             else if(context.interaction is PressInteraction)
             {
-                _hero.Throw();
+                _hero.Throw(EnumsUtils.ThrowType.Common);
             }
         }
 
         public void OnHelthPotion(InputAction.CallbackContext context)
         {
             if (context.performed)
-                _hero.UsePotion();
+                _hero.OnPotion();
+        }
+
+        public void OnNextItem(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                _hero.NextItem();
         }
     }
 }

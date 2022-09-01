@@ -1,6 +1,6 @@
-﻿using Assets.scripts.Components.Stats;
+﻿using PixelCrew.Components.Stats;
 
-namespace Assets.scripts.Creatures.Mobs
+namespace PixelCrew.Creatures.Mobs
 {
     class Shark : Creature
     {

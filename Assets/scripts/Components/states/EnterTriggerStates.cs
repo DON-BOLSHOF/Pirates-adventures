@@ -1,6 +1,6 @@
-using Assets.scripts.Components.states;
+using PixelCrew.Components.states;
 using UnityEngine;
-namespace Assets.scripts.Components
+namespace PixelCrew.Components
 {
     public class EnterTriggerStates: MonoBehaviour
     {

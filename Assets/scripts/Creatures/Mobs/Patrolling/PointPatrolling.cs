@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.scripts.Creatures.Mobs.Patrolling
+namespace PixelCrew.Creatures.Mobs.Patrolling
 {
     class PointPatrolling : Patrol
     {

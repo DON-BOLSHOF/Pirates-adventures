@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace Assets.scripts.Components
+namespace PixelCrew.Components
 {
     class SpawnListComponent : MonoBehaviour
     {

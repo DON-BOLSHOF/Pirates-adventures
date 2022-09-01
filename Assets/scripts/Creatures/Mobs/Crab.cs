@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using Assets.scripts.Components.Stats;
-using Assets.scripts.Components.ColliderBased;
 using System;
+using PixelCrew.Components.ColliderBased;
+using PixelCrew.Components.Stats;
 
-namespace Assets.scripts.Creatures.Mobs
+namespace PixelCrew.Creatures.Mobs
 {
     class Crab : Creature
     {
@@ -32,7 +32,7 @@ namespace Assets.scripts.Creatures.Mobs
         public void Screaming(GameObject go)
         {
             var hero = go.GetComponent<Hero>();
-            hero?.OnDebuffed(new HellScream(hero.Provider));
+            hero?.OnBuffed(new HellScream(hero.Provider));
         }
     }
 }

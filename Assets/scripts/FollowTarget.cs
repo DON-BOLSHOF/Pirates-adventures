@@ -1,6 +1,6 @@
 
 using UnityEngine;
-namespace Assets.scripts
+namespace PixelCrew
 {
     public class FollowTarget : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.script.Components
+namespace PixelCrew.script.Components
 {
     public class ProbabilityDropComponent : MonoBehaviour
     {

@@ -1,13 +1,19 @@
 ﻿using System;
+using PixelCrew.Utils;
 using UnityEngine;
 
-namespace Assets.scripts.Components.Audio
+namespace PixelCrew.Components.Audio
 {
     class PlaySoundsComponent : MonoBehaviour
     {
         [SerializeField] private AudioSource _source;
         [SerializeField] private AudioData[] _sounds;
-        
+
+        private void Awake()
+        {
+            _source = AudioUtils.FindSFXSource();
+        }
+
         public void PlayClip(string id)
         {
             foreach(var sound in _sounds)

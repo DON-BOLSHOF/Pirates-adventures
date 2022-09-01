@@ -1,7 +1,8 @@
-﻿using Assets.scripts.Model.Definition;
-using System;
+﻿using System;
+using PixelCrew.Model.Definition;
+using PixelCrew.Model.Definition.Repositories.Items;
 
-namespace Assets.scripts.Model.Data
+namespace PixelCrew.Model.Data
 {
     [Serializable]
     public class InventoryItemData

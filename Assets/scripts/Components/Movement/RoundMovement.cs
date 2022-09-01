@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.scripts.Components.Movement
+namespace PixelCrew.Components.Movement
 {
     class RoundMovement : MonoBehaviour
     {

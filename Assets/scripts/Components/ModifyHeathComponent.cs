@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.scripts.Components
+namespace PixelCrew.Components
 {
     public class ModifyHeathComponent : MonoBehaviour
     {

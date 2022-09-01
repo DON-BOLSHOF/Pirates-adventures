@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.scripts.Components
+namespace PixelCrew.Components
 {
     [System.Serializable]
     public class State

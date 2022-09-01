@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.scripts.Components
+namespace PixelCrew.Components
 {
     class TimerComponent : MonoBehaviour
     {

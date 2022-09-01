@@ -1,8 +1,8 @@
-﻿using Assets.scripts.Components.ColliderBased;
-using System.Collections;
+﻿using System.Collections;
+using PixelCrew.Components.ColliderBased;
 using UnityEngine;
 
-namespace Assets.scripts.Creatures.Mobs.Patrolling
+namespace PixelCrew.Creatures.Mobs.Patrolling
 {
     class PlatformPatrolling : Patrol
     {

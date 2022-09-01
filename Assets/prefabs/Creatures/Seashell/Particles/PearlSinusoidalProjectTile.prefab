@@ -140,7 +140,7 @@ MonoBehaviour:
   _tag: 
   _layer:
     serializedVersion: 2
-    m_Bits: 521
+    m_Bits: 520
   _action:
     m_PersistentCalls:
       m_Calls:

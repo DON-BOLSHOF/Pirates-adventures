@@ -1,12 +1,12 @@
-﻿using Assets.scripts.Model;
+﻿using PixelCrew.Model;
 
-namespace Assets.scripts.Components.Stats
+namespace PixelCrew.Components.Stats
 {
     public abstract class StatsDecorator : IStatsProvider
     {
         protected readonly IStatsProvider _wrappedEntity;
 
-        protected Cooldown _duration; 
+        public Cooldown _duration; 
 
         public StatsDecorator(IStatsProvider statsProvider)
         {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.scripts.Utils
+namespace PixelCrew.Utils
 {
     public static class GameObjectExtensions
     {

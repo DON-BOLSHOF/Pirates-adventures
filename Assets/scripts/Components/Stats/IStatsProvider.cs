@@ -1,4 +1,4 @@
-﻿namespace Assets.scripts.Components.Stats
+﻿namespace PixelCrew.Components.Stats
 {
     public interface IStatsProvider
     {

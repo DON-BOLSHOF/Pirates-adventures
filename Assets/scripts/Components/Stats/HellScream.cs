@@ -1,12 +1,11 @@
-﻿using Assets.scripts.Model;
+﻿using PixelCrew.Model;
 
-namespace Assets.scripts.Components.Stats
+namespace PixelCrew.Components.Stats
 {
     class HellScream : StatsDecorator
     {
         public HellScream(IStatsProvider statsProvider) : base(statsProvider)
         {
-
             _duration = new Cooldown { cooldownTime =5f};
             _duration.Reset();
         }

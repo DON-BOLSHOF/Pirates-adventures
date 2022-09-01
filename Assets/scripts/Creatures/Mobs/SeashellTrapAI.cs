@@ -1,10 +1,10 @@
-﻿using Assets.scripts.Components;
-using Assets.scripts.Components.ColliderBased;
-using Assets.scripts.Model;
+﻿using PixelCrew.Components;
 using System;
+using PixelCrew.Components.ColliderBased;
+using PixelCrew.Model;
 using UnityEngine;
 
-namespace Assets.scripts.Creatures.Mobs
+namespace PixelCrew.Creatures.Mobs
 {
     class SeashellTrapAI : ShootingTrapAI
     {

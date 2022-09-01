@@ -99,11 +99,11 @@ MonoBehaviour:
   _frameRate: 10
   _loop: 0
   _sprites:
-  - {fileID: 21300000, guid: c8b1f4c0e156fcb448c26a23ff2bd200, type: 3}
-  - {fileID: 21300000, guid: 5ad63e1985cee394ea8e47771aaab87e, type: 3}
-  - {fileID: 21300000, guid: 96aadb50744609242bd95f3c7012e4c0, type: 3}
-  - {fileID: 21300000, guid: 92bcd61f3b3a3514881bd95a8c40699a, type: 3}
-  - {fileID: 21300000, guid: 9b35f3c3eaf80d24eb7c182650e1c9cb, type: 3}
+  - {fileID: 21300000, guid: 256362aec40234b408f3f288b74e05fa, type: 3}
+  - {fileID: 21300000, guid: f000adcdf5ee9fb41835b032c296452e, type: 3}
+  - {fileID: 21300000, guid: cfdb8448b8302f84fabb0ef26faddd72, type: 3}
+  - {fileID: 21300000, guid: f0fc1e4ebdefe974eb205e103e9ad18e, type: 3}
+  - {fileID: 21300000, guid: 32bf546138a877d4982f51f5ddb0f22d, type: 3}
   _onComponent:
     m_PersistentCalls:
       m_Calls:

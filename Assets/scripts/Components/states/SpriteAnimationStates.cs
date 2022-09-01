@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.scripts.Components.states
+namespace PixelCrew.Components.states
 {
     [RequireComponent(typeof(SpriteRenderer))]
 
@@ -73,7 +73,7 @@ namespace Assets.scripts.Components.states
             }
 
             if (!_founded)
-                Debug.Log("Не смог найти State у " + gameObject.name);
+                Debug.Log("пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ State пїЅ " + gameObject.name);
         }
     }
 }

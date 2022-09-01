@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.scripts.Components.Movement
+namespace PixelCrew.Components.Movement
 {
     class VerticalLevitationComponent : MonoBehaviour
     {

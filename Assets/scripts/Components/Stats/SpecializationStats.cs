@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.scripts.Components.Stats
+namespace PixelCrew.Components.Stats
 {
     public class SpecializatonStats : IStatsProvider
     {

@@ -1,8 +1,9 @@
-﻿using Assets.scripts.Creatures;
-using Assets.scripts.Model.Definition;
+﻿using PixelCrew.Creatures;
+using PixelCrew.Model.Definition;
+using PixelCrew.Model.Definition.Repositories.Items;
 using UnityEngine;
 
-namespace Assets.scripts.Components.Collectables
+namespace PixelCrew.Components.Collectables
 {
     class InventoryAddComponent: MonoBehaviour
     {

@@ -1,29 +1,30 @@
-using Assets.scripts.Model;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-namespace Assets.scripts.Components
+namespace PixelCrew.Components
 {
     public class HealthComponent : MonoBehaviour
     {
         [SerializeField] private int _health;
         [SerializeField] private UnityEvent _onDamage;
-        [SerializeField] private UnityEvent _onHealth;
-        [SerializeField] public UnityEvent _onDie;
-        [SerializeField] private HealthChangeEvent _onChange;
+        [SerializeField] private UnityEvent _onHeal;
+        [SerializeField] public UnityEvent OnDie;
+        [SerializeField] public HealthChangeEvent OnChange;
+
+        public int Health => _health;
 
         public void ModifyHealth(int value)
         {
             _health += value;
-            _onChange?.Invoke(_health);
+            OnChange?.Invoke(_health);
 
             if (value < 0)
                 _onDamage.Invoke();
             else if (value > 0)
-                _onHealth.Invoke();
+                _onHeal.Invoke();
 
             if (_health <= 0)
-                _onDie?.Invoke();
+                OnDie?.Invoke();
 
         }
 
@@ -34,7 +35,7 @@ namespace Assets.scripts.Components
 
         private void OnDestroy()
         {
-            _onDie.RemoveAllListeners();
+            OnDie.RemoveAllListeners();
         }
 
         [Serializable]

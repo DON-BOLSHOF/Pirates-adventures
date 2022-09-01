@@ -1,10 +1,10 @@
-﻿using Assets.scripts.Components.ColliderBased;
-using Assets.scripts.Components.Stats;
-using Assets.Scripts.Creatures.Mobs;
+﻿using PixelCrew.Components.Stats;
 using System.Collections;
+using PixelCrew.Components.ColliderBased;
+using PixelCrew.Scripts.Creatures.Mobs;
 using UnityEngine;
 
-namespace Assets.scripts.Creatures.Mobs
+namespace PixelCrew.Creatures.Mobs
 {
     class CrabbyAI : MobAI
     {

@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Assets.scripts.Components
+namespace PixelCrew.Components
 {
     public class DestroyObjectComponent : MonoBehaviour
     {

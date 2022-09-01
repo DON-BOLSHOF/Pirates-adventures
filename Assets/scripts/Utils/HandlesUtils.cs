@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.scripts.Utils
+namespace PixelCrew.Utils
 {
     class HandlesUtils
     {

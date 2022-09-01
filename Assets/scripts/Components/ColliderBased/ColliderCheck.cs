@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.scripts.Components.ColliderBased
+namespace PixelCrew.Components.ColliderBased
 {
     class ColliderCheck : LayerCheck
     {

@@ -1,7 +1,8 @@
 ﻿using System;
+using PixelCrew.Model.Data.Properties;
 using UnityEngine;
 
-namespace Assets.scripts.Model.Data
+namespace PixelCrew.Model.Data
 {
     [Serializable]
     class PlayerData
@@ -9,8 +10,7 @@ namespace Assets.scripts.Model.Data
         [SerializeField] private InventoryData _inventory;
 
         public InventoryData Inventory => _inventory;
-
-        public int Health = 10;
+        public IntPersistantProperty Health = new IntPersistantProperty(); 
 
         public PlayerData Clone()
         {

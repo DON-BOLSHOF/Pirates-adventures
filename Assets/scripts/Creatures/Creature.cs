@@ -1,12 +1,12 @@
-﻿using Assets.scripts.Components;
-using Assets.scripts.Components.Audio;
-using Assets.scripts.Components.ColliderBased;
-using Assets.scripts.Components.Stats;
-using Assets.scripts.Utils;
+﻿using PixelCrew.Components;
+using PixelCrew.Components.Audio;
+using PixelCrew.Components.ColliderBased;
+using PixelCrew.Components.Stats;
+using PixelCrew.Utils;
 using UnityEditor;
 using UnityEngine;
 
-namespace Assets.scripts.Creatures
+namespace PixelCrew.Creatures
 {
     abstract class Creature : MonoBehaviour
     {
@@ -54,7 +54,7 @@ namespace Assets.scripts.Creatures
 
         protected abstract IStatsProvider SetProvider();
 
-        public void OnDebuffed(IStatsProvider stats)
+        public void OnBuffed(IStatsProvider stats)
         {
             Provider = stats;
         }
